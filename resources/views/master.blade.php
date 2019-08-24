@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laravel </title>
+    <title>9x shop </title>
     <base href="{{asset('')}}">
 	<link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
@@ -15,9 +15,16 @@
 	<link rel="stylesheet" title="style" href="source/assets/dest/css/style.css">
 	<link rel="stylesheet" href="source/assets/dest/css/animate.css">
     <link rel="stylesheet" title="style" href="source/assets/dest/css/huong-style.css">
-
+    <style>
+        .sub-menu li,.children li {background: antiquewhite;}
+        .ribbon { z-index: 1;}
+        .sub-menu { z-index: 1000;}
+        .main-menu ul li.active> a {  background: #0371ef;}
+        /* div, form, fieldset, legend, label {  z-index: 1;} */
+}
+    </style>
 </head>
-<body>
+<body style="font-family: -webkit-pictograph;">
 
     @include('header')
 

@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\ProductType;
 use Illuminate\Support\Facades\DB;
-
 class ProductsTypeController extends Controller
 {
     /**
@@ -18,7 +15,6 @@ class ProductsTypeController extends Controller
         $list = DB::table('type_products')->paginate(12);
         return view('admin.productsType.index', ['list' => $list]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -28,7 +24,6 @@ class ProductsTypeController extends Controller
     {
         echo view('admin.productsType.create');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -38,21 +33,17 @@ class ProductsTypeController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name' => 'required',
+            'name' => 'required|unique:type_products,name',
             'description' => '',
             'image' => '',
         ]);
-
         $ProductType = new ProductType();
         $ProductType->name = $request->name;
         $ProductType->description = $request->description;
         $ProductType->image = $request->image;
-
         $ProductType->save();
-
         return redirect()->route('productsType.create')->with('success','insert new record success');
     }
-
     /**
      * Display the specified resource.
      *
@@ -63,7 +54,6 @@ class ProductsTypeController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -75,9 +65,7 @@ class ProductsTypeController extends Controller
         $products = ProductType::find($id);
         $list = DB::table('type_products')->where('id',$id)->get();
         echo view('admin.productsType.edit',compact('id','list'));
-
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -87,23 +75,18 @@ class ProductsTypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $this->validate($request,[
-            'name' => 'required',
+            'name' => 'required|unique:type_products,name,'.$id,
             'description' => '',
             'image' => '',
         ]);
-
         $ProductType = ProductType::find($id);
         $ProductType->name = $request->name;
         $ProductType->description = $request->description;
         $ProductType->image = $request->image;
-
         $ProductType->save();
-
         return redirect()->route('productsType.index')->with('success','update record success');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -114,7 +97,6 @@ class ProductsTypeController extends Controller
     {
         $ProductType = ProductType::find($id);
         $ProductType->delete();
-
         return redirect(url()->previous())->with('success','Delete success');
     }
 }

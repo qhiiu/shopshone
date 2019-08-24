@@ -1,5 +1,4 @@
 @php
-
 @endphp
 
 @extends('layouts.admin')
@@ -14,11 +13,11 @@
         @csrf
       <div class="box-body">
         <div class="form-group">
-                <label >name</label>
+                <label >name *</label>
                 <input type="text" class="form-control" placeholder="name" name="name">
         </div>
         <div class="input-group mb-3">
-                <label class="input-group-text"  >id_type</label>
+                <label class="input-group-text"  >id_type *</label>
                 <br>
             <select class="custom-select"  name="id_type">
                 @foreach ($list_type_products as $l)
@@ -33,11 +32,11 @@
         </div>
 
         <div class="form-group">
-            <label >unit_price</label>
+            <label >unit_price *</label>
             <input type="number" class="form-control" placeholder="$" name="unit_price" value="">
         </div>
         <div class="form-group">
-            <label >promotion_price</label>
+            <label >promotion_price *</label>
             <input type="number" class="form-control" placeholder="$" name="promotion_price">
         </div>
         <div class="form-group">
@@ -45,11 +44,11 @@
             <input type="text" class="form-control" placeholder="image" name="image">
         </div>
         <div class="form-group">
-            <label >unit</label>
+            <label >unit *</label>
             <input type="text" class="form-control" placeholder="unit" name="unit">
         </div>
         <div>
-            <label><b>new</b></label>
+            <label><b>new *</b></label>
             <div class="form-check">
                 <input type="radio" class="form-check-input" name="new" value="1" checked>new
             </div>

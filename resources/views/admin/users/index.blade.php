@@ -17,11 +17,13 @@
         <tr>
           <th>id</th>
           <th>role</th>
-          <th>name</th>
-          <th>password</th>
           <th>email</th>
+          <th>password</th>
+          <th>name</th>
+          <th>gender</th>
           <th>phone</th>
           <th>address</th>
+          <th>dob</th>
           <th>remember_token</th>
 
           <th>created_at</th>
@@ -32,11 +34,13 @@
         <tr>
           <td>{{$r->id}}</td>
           <td>{{$r->role}}</td>
-          <td>{{$r->name}}</td>
-          <td>{{ $r->password }}</td>
           <td>{{$r->email}}</td>
+          <td>{{ $r->password }}</td>
+          <td>{{$r->name}}</td>
+          <td>{{$r->gender}}</td>
           <td>{{$r->phone}}</td>
           <td>{{$r->address}}</td>
+          <td>{{$r->dob}}</td>
           <td>{{$r->remember_token}}</td>
 
           <td>{{$r->created_at}}</td>

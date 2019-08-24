@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Product;
 use Illuminate\Support\Facades\DB;
-
 class ProductsController extends Controller
 {
     /**
@@ -18,7 +15,6 @@ class ProductsController extends Controller
         $list = DB::table('products')->paginate(12);
         return view('admin.products.index', ['list' => $list]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -29,7 +25,6 @@ class ProductsController extends Controller
         $list_type_products = DB::table('type_products')->paginate();
         echo view('admin.products.create',['list_type_products' => $list_type_products]);
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -39,33 +34,27 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name' => 'required',
+            'name' => 'required|unique:products,name',
             'id_type' => 'required',
             'description' => '',
             'unit_price' =>'required|numeric',
             'promotion_price' => 'required|numeric',
-
             'image' => '',
-            'unit' => '',
+            'unit' => 'required|string',
             'new' => 'required',
         ]);
-
         $product = new Product();
         $product->name = $request->name;
         $product->id_type = $request->id_type;
         $product->description = $request->description;
         $product->unit_price = $request->unit_price;
         $product->promotion_price = $request->promotion_price;
-
         $product->image = $request->image;
         $product->unit = $request->unit;
         $product->new = $request->new;
-
         $product->save();
-
         return redirect()->route('products.create')->with('success','insert new record success');
     }
-
     /**
      * Display the specified resource.
      *
@@ -76,7 +65,6 @@ class ProductsController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -90,9 +78,7 @@ class ProductsController extends Controller
         $list = DB::table('products')->where('id',$id)->get();
         // dd($list);
         echo view('admin.products.edit',compact('id','list_type_products','list'));
-
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -102,35 +88,28 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $this->validate($request,[
-            'name' => 'required',
+            'name' => 'required|unique:products,name,'.$id,
             'id_type' => 'required',
             'description' => '',
             'unit_price' =>'required|numeric',
             'promotion_price' => 'required|numeric',
-
             'image' => '',
-            'unit' => '',
+            'unit' => 'required|string',
             'new' => 'required',
         ]);
-
         $product = Product::find($id);
         $product->name = $request->name;
         $product->id_type = $request->id_type;
         $product->description = $request->description;
         $product->unit_price = $request->unit_price;
         $product->promotion_price = $request->promotion_price;
-
         $product->image = $request->image;
         $product->unit = $request->unit;
         $product->new = $request->new;
-
         $product->save();
-
         return redirect()->route('products.index')->with('success','update record success');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -141,7 +120,6 @@ class ProductsController extends Controller
     {
         $Product = Product::find($id);
         $Product->delete();
-
         return redirect(url()->previous())->with('success','Delete success');
     }
 }

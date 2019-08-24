@@ -3,29 +3,21 @@
 <div class="inner-header">
 		<div class="container">
 			<div class="pull-left">
-				<h2 class="inner-title" style="margin-top:50px; font-size:50px;">Đặt hàng</h2>
+				<h2 class="inner-title" style="margin-top:30px; font-size:50px;">Đặt hàng</h2>
 			</div>
-			<div class="pull-right">
-				<div class="beta-breadcrumb">
-                <a href="{{route('trangchu')}}">Trang chủ</a> / <span>Đặt hàng</span>
-				</div>
-			</div>
-			<div class="clearfix"></div>
 		</div>
 	</div>
 
 	<div class="container">
-		<div id="content">
+		<div id="content" style="padding: 40px 0;">
 
         <form action="{{route('dathang')}}" method="post" class="beta-form-checkout">
          <input type="hidden" name="_token" value="{{csrf_token()}}">
         {{-- lấy token của laravel --}}
         {{-- {!! csrf_field() !!} --}}
-        <div class="row"><div class="thongbao" style=" font-size:25px; margin-bottom:50px; color:red;">@if(Session::has('thongbao')){{Session::get('thongbao')}}@endif</div></div>
+        <div class="row"><div class="thongbao" style=" font-size:25px; margin-bottom:10px; color:red;">@if(Session::has('thongbao')){{Session::get('thongbao')}}@endif</div></div>
 				<div class="row">
 					<div class="col-sm-6">
-
-						<div class="space20">&nbsp;</div>
 
 						<div class="form-block"style="margin-top:0px; margin-bottom:30px; " >
 							<label for="name" style="color:#DF3A01; font-size:20px; ">Họ và tên</label>
@@ -91,12 +83,12 @@
 							</div>
 							<div class="your-order-head" ><h5 style="color:red;">Hình thức thanh toán</h5></div>
 
-							<div class="your-order-body" >
+							<div class="your-order-body" style="padding: 5px 25px;">
 								<ul class="payment_methods methods">
 									<li class="payment_method_bacs">
 										<input id="payment_method_bacs" type="radio" class="input-radio" name="payment_method" value="COD" checked="checked" data-order_button_text="" name="payment">
 										<label for="payment_method_bacs"  style="color:#088A08;">Thanh toán khi nhận hàng </label>
-										<div class="payment_box payment_method_bacs" style="display: block;">
+										<div class="payment_box payment_method_bacs" style="display: block;    margin: unset;">
 											Cửa hàng sẽ gửi hàng đến địa chỉ của bạn, bạn xem hàng rồi thanh toán tiền cho nhân viên giao hàng
 										</div>
 									</li>

@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\DB;
-
 class UsersController extends Controller
 {
     /**
@@ -15,10 +12,14 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $list = User::paginate(10);
-        return view('admin.users.index', ['list' => $list]);
+        // $checkAdmin = session('checkAdmin');
+        // if($checkAdmin == true){
+            $list = User::paginate(10);
+            return view('admin.users.index', ['list' => $list]);
+        // }else{
+        //     return redirect()->route('login');
+        // }
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -28,7 +29,6 @@ class UsersController extends Controller
     {
         return view('admin.users.create');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -38,35 +38,35 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'role' => 'required',
-            'username' => 'required',
-            'password' => 'required',
-            'full_name'=>'required',
-            'email' => '',
-            'phone' => 'numeric',
+            'role' => '',
+            'name' => 'required',
+            'password' => 'required|min:8',
+            'email' => 'required|email|unique:users,email',
+            'phone' => '',
             'address' =>'',
-            'remember_token' => ''
+            'remember_token' => '',
+            'gender'=>'required',
+            'dob'=>''
         ]);
-
         $user = new User();
         $user->role = $request->role;
-        $user->username = $request->username;
-
-        $password_encode =  \md5($request->password);
-        $user->password = $password_encode;
-
-        $user->full_name = $request->full_name;
+        $user->name = $request->name;
+            if($request->role == null){
+                $password_encode =  \Hash::make($request->password);
+            }
+            if($request->role == 'admin'){
+                $password_encode =  md5($request->password);
+            }
+            $user->password = $password_encode;
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->address = $request->address;
-
-        $user->remember_token = $request->remember_token;  
-
+        $user->gender = $request->gender;
+        $user->dob = $request->dob;
+        $user->remember_token = $request->remember_token;
         $user->save();
-
         return redirect()->route('users.create')->with('success','insert new record success ');
     }
-
     /**
      * Display the specified resource.
      *
@@ -77,7 +77,6 @@ class UsersController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -90,7 +89,6 @@ class UsersController extends Controller
         $list = DB::table('users')->where('id',$id)->get();
         echo view('admin.users.edit',compact('id','list'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -101,23 +99,21 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-
-            'phone' => 'numeric',
+            'phone' => '',
             'address' =>'',
-            'full_name' => ''
+            'name' => 'required',
+            'gender'=>'required',
+            'dob'=>''
         ]);
-
         $user = User::find($id);
-
         $user->phone = $request->phone;
         $user->address = $request->address;
-        $user->full_name = $request->full_name;
-
+        $user->name = $request->name;
+        $user->gender = $request->gender;
+        $user->dob = $request->dob;
         $user->save();
-
         return redirect()->route('users.index')->with('success','update record success ');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -128,7 +124,6 @@ class UsersController extends Controller
     {
         $user = User::find($id);
         $user->delete();
-
         return redirect(url()->previous())->with('success','Delete success');
     }
 }

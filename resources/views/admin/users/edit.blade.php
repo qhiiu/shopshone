@@ -1,6 +1,3 @@
-
-
-
 @extends('layouts.admin')
 @section('content')
 <div class="box box-primary">
@@ -16,23 +13,35 @@
 
             <input type="hidden" name="_method" value="PATCH">
             <div><b> id </b>= {{ $id }}</div>
-            <div><b> role </b> = {{ $l->role }}</div>
+            <div><b> role</b> = {{ $l->role }}</div>
             <br><br>
             <div class="box-body">
                     <div class="form-group">
-                      <label >name</label>
-                      <input type="text" class="form-control" value="{{ $l->name }}" name="name" readonly>
+                      <label >full name *</label>
+                      <input type="text" class="form-control" value="{{ $l->name }}" name="name" >
                     </div>
 
                     <div class="form-group">
-                        <label >password</label>
+                            <label >email  *</label>
+                            <input type="email" class="form-control" value="{{ $l->email }}" name="email" readonly>
+                        </div>
+
+                    <div class="form-group">
+                        <label >password  *</label>
                         <input type="password" class="form-control" value="{{ $l->password }}" name="password" readonly>
                     </div>
 
-                    <div class="form-group">
-                        <label >email</label>
-                        <input type="email" class="form-control" value="{{ $l->email }}" name="email" readonly>
-                    </div>
+                    <div>
+                            <label><b>Gender  *</b></label>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="gender" value="nam"
+                                    @if (Auth::user()->gender == 'nam')       {{ 'checked' }}   @endif>Nam
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="gender" value="nữ"
+                                    @if (Auth::user()->gender == 'nữ')       {{ 'checked' }}   @endif>Nữ
+                            </div>
+                        </div>
 
                     <div class="form-group">
                         <label >phone</label>
@@ -44,6 +53,11 @@
                         <label >address</label>
                         <input type="text" class="form-control" value="{{ $l->address }}" name="address">
                     </div>
+
+                    <div class="form-group">
+                            <label >Day of birth</label>
+                            <input type="date" class="form-control" value="{{ $l->dob }}" name="dob">
+                        </div>
 
                     <div class="form-group">
                         <label >remember_token</label>

@@ -10,12 +10,12 @@
         @csrf
       <div class="box-body">
         <div class="form-group">
-                <label for="">Title</label>
+                <label for="">Title *</label>
                 <textarea class="form-control" name="title" id="" rows="2"></textarea>
         </div>
 
         <div class="form-group">
-          <label for="">Content</label>
+          <label for="">Content  *</label>
           <textarea class="form-control" name="content" id="" rows="3"></textarea>
         </div>
       <div class="form-group">

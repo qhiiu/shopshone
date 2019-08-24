@@ -47,12 +47,12 @@ return [
     'facebook' => [
         'client_id' => '408582516682515',
         'client_secret' => '22402c34e13f5148d037fe4e0eacb510',
-        'redirect' => 'http://localhost:8080/shop_phone/public/login/facebook/callback',
+        'redirect' => 'http://localhost:8080/shopphone/public/login/facebook/callback',
     ],
 
     'google' => [
         'client_id' => '533823689285-t3i7ahf1p37iftgckqjfgf4ge7erqu7u.apps.googleusercontent.com',
         'client_secret' => '3G2NGFzMfZPQirR6SqQmYYg0',
-        'redirect' => 'http://localhost:8080/shop_phone/public/login/google/callback',
+        'redirect' => 'http://localhost:8080/shopphone/public/login/google/callback',
     ],
 ];

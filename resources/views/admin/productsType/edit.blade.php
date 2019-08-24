@@ -1,5 +1,4 @@
 @php
-
 @endphp
 
 @extends('layouts.admin')
@@ -13,7 +12,7 @@
 
     <!-- form start -->
 @foreach ($list as $l)
-    
+
     <form class="update_form" role="form" method="POST" action="{{ action('ProductsTypeController@update',$id) }}">
             @csrf
 
@@ -24,10 +23,10 @@
 
 
             <div class="form-group">
-                    <label for="exampleInputEmail1">name</label>
+                    <label for="exampleInputEmail1">name *</label>
                     <input type="text" class="form-control" name="name" id="exampleInputEmail1" value="{{ $l->name }}">
                   </div>
-          
+
                   <div class="form-group">
                     <label for="">description</label>
                     <textarea class="form-control" name="description" id="" rows="3">{{ $l->description }}"</textarea>

@@ -8,12 +8,12 @@
     @csrf
 
         <div class="form-group">
-            <label >name</label>
+            <label >name *</label>
             <input type="text" class="form-control" placeholder="name" name="name">
         </div>
-        
+
         <div>
-            <label><b>Gender</b></label>
+            <label><b>Gender *</b></label>
             <div class="form-check">
                       <input type="radio" class="form-check-input" name="gender" value="nam" checked>nam
               </div>
@@ -22,7 +22,7 @@
               </div>
         </div>
         <br>
-   
+
         <div class="form-group">
             <label >email</label>
             <input type="email" class="form-control" placeholder="email" name="email">

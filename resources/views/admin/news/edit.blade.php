@@ -19,12 +19,12 @@
         <br><br>
 
         <div class="form-group">
-                <label >Title </label><br>
+                <label >Title  *</label><br>
                 <textarea class="form-control" name="title" id="" cols="" rows="2" >{{ $l->title }}</textarea>
             </div>
 
         <div class="form-group">
-            <label >content </label><br>
+            <label >content  *</label><br>
             <textarea class="form-control"  name="content" id="" cols="" rows="5" >{{ $l->content }}</textarea>
         </div>
         <div class="form-group">

@@ -7,32 +7,41 @@
     <form role="form" action="{{ url('admin/users') }}" method="POST">
     @csrf
         <div>
-            <label><b>Role</b></label>
+            <label><b>Role  *</b></label>
             <div class="form-check">
-                      <input type="radio" class="form-check-input" name="role" value="admin" disabled>admin
+                      <input type="radio" class="form-check-input" name="role" value="admin" >admin
               </div>
             <div class="form-check">
-                  <input type="radio" class="form-check-input" name="role" value="users" checked>users
+                  <input type="radio" class="form-check-input" name="role" value="" checked>users
               </div>
         </div>
         <br>
         <br>
 
         <div class="form-group">
-          <label >name</label>
-          <input type="text" class="form-control" placeholder="name" name="username">
+          <label >full name *</label>
+          <input type="text" class="form-control" placeholder="name" name="name">
         </div>
 
         <div class="form-group">
-            <label >password</label>
-            <input type="password" class="form-control" placeholder="password" name="password">
-        </div>
-
-
-        <div class="form-group">
-            <label >email</label>
+            <label >email *</label>
             <input type="email" class="form-control" placeholder="email" name="email">
         </div>
+
+        <div class="form-group">
+            <label >password *</label>
+            <input type="password" class="form-control" placeholder="password" name="password">
+        </div>
+        <div>
+            <label><b>Gender  *</b></label>
+            <div class="form-check">
+                      <input type="radio" class="form-check-input" name="gender" value="nam" checked >Nam
+              </div>
+            <div class="form-check">
+                  <input type="radio" class="form-check-input" name="gender" value="nữ" >Nữ
+              </div>
+        </div>
+        <br>
 
         <div class="form-group">
             <label >phone</label>
@@ -43,6 +52,11 @@
         <div class="form-group">
             <label >address</label>
             <input type="text" class="form-control" placeholder="address" name="address">
+        </div>
+
+        <div class="form-group">
+            <label >Day of birth</label>
+            <input type="date" class="form-control" placeholder="dob" name="dob">
         </div>
 
         <div class="form-group">

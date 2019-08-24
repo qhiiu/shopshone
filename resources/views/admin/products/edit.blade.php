@@ -1,5 +1,4 @@
 @php
-
 @endphp
 
 @extends('layouts.admin')
@@ -13,7 +12,7 @@
 
     <!-- form start -->
 @foreach ($list as $l)
-    
+
 
     <form class="update_form" role="form" method="POST" action="{{ action('ProductsController@update',$id) }}">
             @csrf
@@ -25,11 +24,11 @@
 
 
            <div class="form-group">
-                <label >name</label>
+                <label >name *</label>
                 <input type="text" class="form-control" value="{{ $l->name }}" name="name">
         </div>
         <div class="input-group mb-3">
-                <label class="input-group-text"  >id_type</label>
+                <label class="input-group-text"  >id_type *</label>
                 <br>
             <select class="custom-select"  name="id_type">
                 @foreach ($list_type_products as $r)
@@ -44,11 +43,11 @@
         </div>
 
         <div class="form-group">
-            <label >unit_price</label>
+            <label >unit_price *</label>
             <input type="number" class="form-control" value="{{ $l->unit_price }}" name="unit_price" >
         </div>
         <div class="form-group">
-            <label >promotion_price</label>
+            <label >promotion_price *</label>
             <input type="number" class="form-control" value="{{ $l->promotion_price }}" name="promotion_price">
         </div>
         <div class="form-group">
@@ -56,11 +55,11 @@
             <input type="text" class="form-control" value="{{ $l->image }}" name="image">
         </div>
         <div class="form-group">
-            <label >unit</label>
+            <label >unit *</label>
             <input type="text" class="form-control" value="{{ $l->unit }}" name="unit">
         </div>
         <div>
-            <label><b>new</b></label>
+            <label><b>new *</b></label>
             <div class="form-check">
                 <input type="radio" class="form-check-input" name="new" value="1" checked>new
             </div>
