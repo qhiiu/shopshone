@@ -5,7 +5,7 @@
 <div class="container">
 <div class="height1"></div>
     <div class="row justify-content-center" style="font-size: larger;">
-        <div class="col-md-8">
+        <div class="col-md-8" style="font-family: -webkit-pictograph;">
             <div class="card">
                 <div class="card-header">{{ __('Đăng ký') }}</div>
 

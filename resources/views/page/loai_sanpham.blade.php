@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-sm-8">
                     <div class="beta-products-list">
-                        <h1  style="  color: rgba(255, 0, 210, 0.97);text-align: center;">{{$loai_sp->name}}</h1>
+                        <h1  style="  color: rgba(255, 0, 210, 0.97);text-align: center; font-family: -webkit-pictograph;">{{$loai_sp->name}}</h1>
                         <div class="beta-products-details">
                             <div class="clearfix"></div>
                         </div>
@@ -45,8 +45,8 @@
                                         </p>
                                     </div>
                                     <div class="single-item-caption">
-                                        <a class="add-to-cart pull-left" href=""><i class="fa fa-shopping-cart"></i></a>
-                                        <a class="beta-btn primary" href="">Details <i class="fa fa-chevron-right"></i></a>
+                                        <a class="add-to-cart pull-left" href="{{ route('themgiohang',$sp->id) }}"><i class="fa fa-shopping-cart"></i></a>
+                                        <a class="beta-btn primary" href="{{ route('chitietsanpham',$sp->id) }}">Chi tiết <i class="fa fa-chevron-right"></i></a>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
@@ -58,7 +58,7 @@
                     <div class="space50">&nbsp;</div>
 
                     <div class="beta-products-list">
-                        <h1  style="  color: rgba(255, 0, 210, 0.97);text-align: center;">Sản phẩm khác</h1>
+                        <h1  style="  color: rgba(255, 0, 210, 0.97);text-align: center;font-family: -webkit-pictograph;">Sản phẩm khác</h1>
                         <div class="beta-products-details">
                             {{-- <p class="pull-left">Tìm thấy {{count($sp_khac)}}</p> --}}
                             <div class="clearfix"></div>
@@ -71,7 +71,7 @@
                                             <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
                                         @endif
                                         <div class="single-item-header">
-                                            <a href=""><img src="source/image/dienthoai/{{$spk->image}}" alt=""  style="height: 250px;"></a>
+                                            <a href="{{ route('chitietsanpham',$spk->id) }}"><img src="source/image/dienthoai/{{$spk->image}}" alt=""  style="height: 250px;"></a>
                                         </div>
                                         <div class="single-item-body">
                                             <p class="single-item-title"  style="font-size: 21px">{{$spk->name}}</p>
@@ -86,8 +86,8 @@
                                             </p>
                                         </div>
                                         <div class="single-item-caption">
-                                            <a class="add-to-cart pull-left" href=""><i class="fa fa-shopping-cart"></i></a>
-                                            <a class="beta-btn primary" href="">Chi tiết <i class="fa fa-chevron-right"></i></a>
+                                            <a class="add-to-cart pull-left" href="{{ route('themgiohang',$spk->id) }}"><i class="fa fa-shopping-cart"></i></a>
+                                            <a class="beta-btn primary" href="{{ route('chitietsanpham',$spk->id) }}">Chi tiết <i class="fa fa-chevron-right"></i></a>
                                             <div class="clearfix"></div>
                                         </div>
                                     </div>

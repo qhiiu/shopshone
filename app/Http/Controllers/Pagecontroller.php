@@ -41,12 +41,12 @@ class Pagecontroller extends Controller
         return view('page.gioithieu');
      }
      public function getAddtoCart(Request $req, $id){
-         $product=Product::find($id);//tìm xem sản phẩm có id hay không
-         $oldCart = Session('cart')?Session::get('cart'):null;//ktra xem session có sp chưa
-         $cart = new Cart($oldCart);//tạo gio mới
-        $cart -> add ($product , $id);//add vào giỏ cũ nữa
+         $product=Product::find($id);                           //tìm xem sản phẩm có id hay không
+         $oldCart = Session('cart')?Session::get('cart'):null;  //ktra xem session có sp chưa
+         $cart = new Cart($oldCart);                            //tạo gio mới
+        $cart -> add ($product , $id);                          //add vào giỏ cũ nữa
         $req->session()->put('cart',$cart);
-        // return Session::get('cart');
+
         return redirect()->back();
      }
      public function getMuahang(){
@@ -82,30 +82,36 @@ class Pagecontroller extends Controller
           }
 
      }
-     public function getpostCheckout( Request $req){
-         $cart=Session::get('cart');
-         $customer=new Customer;
-         $customer ->name=$req->name;
-         $customer ->gender=$req->gender;
-         $customer ->email=$req->email;
-         $customer ->address=$req->address;
-         $customer ->phone_number=$req->phone;
-         $customer ->note=$req->notes;
-         $customer->save();
-         $bill=new Bill;
 
-         $bill->id_customer=$customer->id_customer;
-         $bill->date_order=date('Y-m-d');
-        $bill->total=$cart->totalPrice;
-        $bill->payment=$req->payment_method;
-        $bill ->note=$req->notes;
-        $bill->id_product=$customer->id_product;
-        $bill->quantity=$customer->quantity;
-        $bill->unit_price=$customer->unit_price;
-        $bill->save();
-        Session::forget('cart');
-        return redirect()->back()->with('thongbao','Đặt hàng thành công');
-        // return view('page.dathang');
-    }
+    public function getpostCheckout( Request $req){
+        $cart=Session::get('cart');
 
+        if($cart == null ){
+            return redirect()->back()->with('gioHangTrong','Giỏ hàng trống');
+        } else {
+
+        $customer=new Customer;
+        $customer ->name=$req->name;
+        $customer ->gender=$req->gender;
+        $customer ->email=$req->email;
+        $customer ->address=$req->address;
+        $customer ->phone_number=$req->phone;
+        $customer ->note=$req->notes;
+        $customer->save();
+        $bill=new Bill;
+
+        $bill->id_customer=$customer->id_customer;
+        $bill->date_order=date('Y-m-d');
+       $bill->total=$cart->totalPrice;
+       $bill->payment=$req->payment_method;
+       $bill ->note=$req->notes;
+       $bill->id_product=$customer->id_product;
+       $bill->quantity=$customer->quantity;
+       $bill->unit_price=$customer->unit_price;
+       $bill->save();
+       Session::forget('cart');
+       return redirect()->back()->with('thongbao','Đặt hàng thành công');
+        }
+
+   }
 }

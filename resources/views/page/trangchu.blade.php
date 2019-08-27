@@ -38,7 +38,7 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="beta-products-list">
-            <h1  style="  color: rgba(255, 0, 210, 0.97);text-align: center;">Sản Phẩm Mới</h1>
+            <h1  style="  color: rgba(255, 0, 210, 0.97);text-align: center;font-family: -webkit-pictograph;">Sản Phẩm Mới</h1>
             <div class="beta-products-details">
                 {{-- <p class="pull-left">Tìm thấy {{count($new_product)}}</p> --}}
                 <div class="clearfix"></div>
@@ -69,7 +69,7 @@
                                 </p>
                             </div>
                             <div class="single-item-caption">
-                                <a class="add-to-cart pull-left" href="{{route('themgiohang',$new->id)}}"><i class="fa fa-shopping-cart"></i></a>
+                                <a class="add-to-cart pull-left" href="{{ route('themgiohang',$new->id) }}"><i class="fa fa-shopping-cart"></i></a>
                                 <a class="beta-btn primary" href="{{route('chitietsanpham',$new->id)}}">Chi tiết <i class="fa fa-chevron-right"></i></a>
                                 <div class="clearfix"></div>
                             </div>
@@ -83,7 +83,7 @@
         <div class="space50">&nbsp;</div>
 
         <div class="beta-products-list">
-            <h1  style="  color: rgba(255, 0, 210, 0.97);text-align: center;">Sản phẩm khuyến mãi</h1>
+            <h1  style="  color: rgba(255, 0, 210, 0.97);text-align: center;font-family: -webkit-pictograph;">Sản phẩm khuyến mãi</h1>
             <div class="beta-products-details">
                 {{-- <p class="pull-left">Tìm thấy {{count($sanpham_khuyenmai)}}</p> --}}
                 <div class="clearfix"></div>

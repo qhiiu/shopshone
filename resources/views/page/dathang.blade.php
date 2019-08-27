@@ -2,6 +2,24 @@
 @section('content')
 <div class="inner-header">
 		<div class="container">
+            @if(Session::has('thongbao'))
+                <div class="row" style="margin-top: 20px;">
+                    <div class="thongbao" style=" font-size:25px; margin-bottom:10px;text-align: center;">
+                        <span style="  padding: 15px;background: #1cff02; border-radius: 30px;     color: blue;">
+                            {{Session::get('thongbao')}}
+                        </span>
+                    </div>
+                </div>
+            @endif
+            @if(Session::has('gioHangTrong'))
+            <div class="row" style="margin-top: 20px;">
+                <div class="thongbao" style=" font-size:25px; margin-bottom:10px;text-align: center;">
+                    <span style="  padding: 15px;background: red; border-radius: 30px;  color:rgb(255, 214, 88);">
+                        {{Session::get('gioHangTrong')}}
+                    </span>
+                </div>
+            </div>
+        @endif
 			<div class="pull-left">
 				<h2 class="inner-title" style="margin-top:30px; font-size:50px;">Đặt hàng</h2>
 			</div>
@@ -15,7 +33,6 @@
          <input type="hidden" name="_token" value="{{csrf_token()}}">
         {{-- lấy token của laravel --}}
         {{-- {!! csrf_field() !!} --}}
-        <div class="row"><div class="thongbao" style=" font-size:25px; margin-bottom:10px; color:red;">@if(Session::has('thongbao')){{Session::get('thongbao')}}@endif</div></div>
 				<div class="row">
 					<div class="col-sm-6">
 
@@ -62,11 +79,12 @@
 									<!--  one item	 -->
 										<div class="media">
                                         <img width="25%" src="source/image/dienthoai/{{$cart['item']['image']}}" alt="" class="pull-left">
-											<div class="media-body">
-												<p class="font-large">{{$cart['item']['name']}}</p>
-												<span class="color-gray your-order-info">Đơn giá:{{number_format($cart['price'])}}VND</span>
-												<span class="color-gray your-order-info">Số lượng: {{$cart['qty']}}</span>
-
+											<div class="media-body" style="font-size: x-large;">
+                                                <div class="">{{$cart['item']['name']}}</div>
+                                                <div class="space20">&nbsp;</div>
+												<div class="color-gray your-order-info">Đơn giá:{{number_format($cart['price'])}}VND</div>
+                                                <div class="space20">&nbsp;</div>
+                                                <div class="color-gray your-order-info">Số lượng: {{$cart['qty']}}</div>
 											</div>
 										</div>
                                     <!-- end one item -->
@@ -76,7 +94,7 @@
 									<div class="clearfix"></div>
 								</div>
 								<div class="your-order-item">
-									<div class="pull-left" ><p class="your-order-f18" >Tổng tiền:</p></div>
+									<div class="pull-left" ><p class="your-order-f18"  style="font-size: x-large;">Tổng tiền:</p></div>
                                 <div class="pull-right"><h5 class="color-black"> @if(Session::has('cart')){{number_format($totalPrice)}}VND @else 0 VND @endif</h5></div>
 									<div class="clearfix"></div>
 								</div>
@@ -87,19 +105,19 @@
 								<ul class="payment_methods methods">
 									<li class="payment_method_bacs">
 										<input id="payment_method_bacs" type="radio" class="input-radio" name="payment_method" value="COD" checked="checked" data-order_button_text="" name="payment">
-										<label for="payment_method_bacs"  style="color:#088A08;">Thanh toán khi nhận hàng </label>
-										<div class="payment_box payment_method_bacs" style="display: block;    margin: unset;">
+										<label for="payment_method_bacs"  style="color:#088A08;    font-size: large;">Thanh toán khi nhận hàng </label>
+										<div class="payment_box payment_method_bacs" style="display: block;    margin: unset;    font-size: large;">
 											Cửa hàng sẽ gửi hàng đến địa chỉ của bạn, bạn xem hàng rồi thanh toán tiền cho nhân viên giao hàng
 										</div>
 									</li>
 
 									<li class="payment_method_cheque">
 										<input id="payment_method_cheque" type="radio" class="input-radio" name="payment_method" value="ATM" data-order_button_text=""name="payment">
-										<label for="payment_method_cheque"  style="color:#088A08;">Chuyển khoản </label>
-										<div class="payment_box payment_method_cheque" style="display: none;">
+										<label for="payment_method_cheque"  style="color:#088A08;    font-size: large;">Chuyển khoản </label>
+										<div class="payment_box payment_method_cheque" style="display: none;    font-size: large;">
 											Chuyển tiền đến tài khoản sau:
 											<br>- Số tài khoản: 123 456 789
-											<br>- Chủ TK: Shop 1999
+											<br>- Chủ TK: Shop 9x
 											<br>- Ngân hàng Viettinbank chi nhánh Đống Đa, Hà Nội
 										</div>
 									</li>
@@ -107,7 +125,7 @@
 								</ul>
 							</div>
 
-							<div class="text-center"><button type="submit" class="beta-btn primary" href="" style="  background-color:#FF0040;">Đặt hàng <i class="fa fa-chevron-right"></i></button></div>
+							<div class="text-center"><button type="submit" class="beta-btn primary" href="" style="  background-color:#FF0040;font-size: x-large;">Đặt hàng <i class="fa fa-chevron-right"></i></button></div>
 						</div> <!-- .your-order -->
 					</div>
 				</div>

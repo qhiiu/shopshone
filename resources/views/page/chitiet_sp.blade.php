@@ -45,15 +45,16 @@
                         <p style="font-size: 20px;">Lựa chọn :</p>
                         <div class="space10">&nbsp;</div>
                         <div class="single-item-options">
-                            <select class="wc-select" name="color" style="font-size:16px">
+{{-- ------------------chọn màu sản phầm, hiện tại ko càn ------------------------ --}}
+                            {{-- <select class="wc-select" name="color" style="font-size:16px">
                                 <option>Màu</option>
                                 <option value="Đỏ">Đỏ</option>
                                 <option value="Xanh">Xanh</option>
                                 <option value="Vàng">Vàng</option>
                                 <option value="Đen">Đen</option>
                                 <option value="Trắng">Trắng</option>
-                            </select>
-                            <select class="wc-select" name="color"  style="font-size:16px">
+                            </select> --}}
+                            <select class="wc-select" name="soluong"  style="font-size:16px">
                                 <option>Số lượng</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -61,7 +62,7 @@
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </select>
-                            <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i></a>
+                            <a class="add-to-cart" href="{{route('themgiohang',$sanpham->id)}}"><i class="fa fa-shopping-cart"></i></a>
                             <div class="clearfix"></div>
                         </div>
                     </div>
@@ -90,7 +91,7 @@
                                         <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
                                     @endif
                                 <div class="single-item-header">
-                                    <a href="product.html"><img src="source/image/dienthoai/{{$sptt->image}}" alt=""></a>
+                                    <a href="{{route('chitietsanpham',$sptt->id)}}"><img src="source/image/dienthoai/{{$sptt->image}}" alt=""></a>
                                 </div>
                                 <div class="single-item-body">
                                     <p class="single-item-title">{{$sptt->name}}</p>
@@ -105,8 +106,8 @@
                                     </p>
                                 </div>
                                 <div class="single-item-caption">
-                                    <a class="add-to-cart pull-left" href="product.html"><i class="fa fa-shopping-cart"></i></a>
-                                    <a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
+                                    <a class="add-to-cart pull-left" href="{{ route('themgiohang',$sptt->id) }}"><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="beta-btn primary" href="{{route('chitietsanpham',$sptt->id)}}">Chi tiết <i class="fa fa-chevron-right"></i></a>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>

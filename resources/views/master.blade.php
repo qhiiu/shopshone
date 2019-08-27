@@ -16,11 +16,9 @@
 	<link rel="stylesheet" href="source/assets/dest/css/animate.css">
     <link rel="stylesheet" title="style" href="source/assets/dest/css/huong-style.css">
     <style>
-        .sub-menu li,.children li {background: antiquewhite;}
+        .sub-menu li,.children li {background: white;}
         .ribbon { z-index: 1;}
         .sub-menu { z-index: 1000;}
-        .main-menu ul li.active> a {  background: #0371ef;}
-        /* div, form, fieldset, legend, label {  z-index: 1;} */
 }
     </style>
 </head>
