@@ -15,10 +15,33 @@
 	<link rel="stylesheet" title="style" href="source/assets/dest/css/style.css">
 	<link rel="stylesheet" href="source/assets/dest/css/animate.css">
     <link rel="stylesheet" title="style" href="source/assets/dest/css/huong-style.css">
+
     <style>
-        .sub-menu li,.children li {background: white;}
+        .sub-menu li {background: ;}
         .ribbon { z-index: 1;}
-        .sub-menu { z-index: 1000;}
+        .sub-menu { z-index: 1000;
+            width: 200px;
+        }
+        .sub-menu li a {
+            font-size: 19px;
+            font-family: -webkit-pictograph;
+        }
+        .main-menu>ul.l-inline> li> a {
+            font-family: -webkit-pictograph;
+            font-size: x-large;
+        }
+        .main-menu li {
+            position: relative;
+            width: 200px;
+        }
+        .cart {
+    border: 1px solid #e1e1e1;
+    height: 50px;
+    width: 200px;
+    font-size: x-large;
+    line-height: 47px;
+    padding: 0 10px;
+    cursor: pointer;
 }
     </style>
 </head>
@@ -27,9 +50,8 @@
     @include('header')
 
 	<div class="rev-slider">
-
         @yield('content')
-        </div> <!-- .container -->
+    </div> <!-- .container -->
 
 	@include('footer')
     <!-- include js files -->

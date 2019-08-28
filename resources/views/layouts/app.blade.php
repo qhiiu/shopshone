@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-        {{-- <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"> --}}
 
 <head>
 	<meta charset="UTF-8">
@@ -46,6 +45,21 @@
          .show{
              display: normal;
          }
+         .sub-menu li,.children li {background: white;}
+        .ribbon { z-index: 1;}
+        .sub-menu { z-index: 1000;}
+        .sub-menu li a {
+            font-size: 21px;
+            font-family: -webkit-pictograph;
+        }
+        .main-menu>ul.l-inline> li> a {
+            font-family: -webkit-pictograph;
+            font-size: large;
+        }
+        .main-menu li {
+            position: relative;
+            width: 180px;
+        }
      </style>
 </head>
 <body>

@@ -48,7 +48,7 @@
             <div class="col-sm-3">
                 <div class="widget">
                     <h4 class="widget-title" style="color:#DF0101;">Đăng ký nhận thông báo từ 9x Shop</h4>
-                    <form action="{{ route('trangchu') }}" method="">
+                    <form action="{{ route('register') }}" method="">
                         <input type="email" name="your_email"  style="background-color:#E0F8E6">
                         <button class="pull-right" type="submit"  style="background-color:#5858FA">Đăng ký <i class="fa fa-chevron-right"></i></button>
                     </form>

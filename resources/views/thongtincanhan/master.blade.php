@@ -8,9 +8,9 @@
             <div class="row" style="font-size:larger;">
                 <div class="col-sm-3">
                     <ul class="list-group">
-                        <li class="list-group-item"><a href="{{ route('thongtincanhan.index') }}" style="font-size: larger;">Thông tin cá nhân</a></li>
-                        <li class="list-group-item"><a href="{{ route('thongtincanhan._edit') }}" style="font-size: larger;">Cập nhật thông tin</a></li>
-                        <li class="list-group-item"><a href="{{ route('thongtincanhan.index') }}" style="font-size: larger;">Danh sách đơn hàng</a></li>
+                        <li class="list-group-item" style="background: #f8f8f8;"><a href="{{ route('thongtincanhan.index') }}" style="font-size: larger;">Thông tin cá nhân</a></li>
+                        <li class="list-group-item" style="background: #f8f8f8;"><a href="{{ route('thongtincanhan._edit') }}" style="font-size: larger;">Cập nhật thông tin</a></li>
+                        <li class="list-group-item" style="background: #f8f8f8;"><a href="{{ route('thongtincanhan.index') }}" style="font-size: larger;">Danh sách đơn hàng</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9">
