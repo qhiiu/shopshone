@@ -44,7 +44,7 @@
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
+                                            <strong  style="font-size:19px; color:red;">{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
@@ -79,11 +79,12 @@
                                             @endif
                                             <div class="space40">&nbsp;</div>
                                             <div class="mb-2">Hoặc đăng nhập bằng </div>
-                                            <div class="space10">&nbsp;</div>
+                                            <div class="space15">&nbsp;</div>
                                             <div>
-                                                <a href="{{ route('login.facebook') }}" class="btn btn-primary "   style="font-size: 25px;">Facebook</a>
+                                                <a href="{{ route('login.facebook') }}" class="btn btn-primary "   style="font-size: 25px;    margin-right: 10px;">Facebook</a>
                                                 <a href="{{ route('login.google') }}" class="btn btn-danger"   style="font-size: 25px;"> Google</a>
-                                            </div></div>
+                                            </div>
+                                </div>
                             </div>
                         </form>
                     </div>

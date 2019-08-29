@@ -48,53 +48,61 @@
             <div class="clearfix"></div>
         </div> <!-- .container -->
     </div> <!-- .header-body -->
+{{-- -------------------------------------------------------------------------------------------------------------- --}}
 
-    <div class="header-bottom" style="background-color:#215fa6;">
-        <div class="container" style="width: 1500px;margin-left: 200px;margin-right: 10px;padding-left: 0px;padding-right: 0px;">
-            <div class="visible-xs clearfix"></div>
-            <nav class="main-menu" >
-                <ul class="l-inline ov">
-                <li style=" "><a href="{{ route('trangchu') }}" >Trang chủ</a></li>
-                <li style=""><a href="{{ route('loaisanpham',1) }}" style="    padding: 10px 22px;">Sản phẩm <span class="caret"></span></a>
-                        <ul class="sub-menu" >
-                            @foreach($loai_sp as $loai)
-                        <li><a href="{{route('loaisanpham',$loai->id)}}" style=" color: rgba(255, 0, 210, 0.97);">{{$loai->name}}</a></li>
-                              @endforeach
-                        </ul>
-                    </li>
-                <li style=" "><a href="{{route('gioithieu')}}">Giới thiệu</a></li>
-                <li style=" "><a href="{{route('lienhe')}}">Liên hệ</a></li>
-                <li style=""><a href="{{ route('dathang') }}">Giỏ hàng</a></li>
-            @guest
-                <li><a href="{{ route('register') }}">Đăng kí</a></li>
-                <li><a href="{{ route('login') }}">Đăng nhập</a></li>
-            @else
-                <li class="nav-item dropdown"  style="width:220px;">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ route('thongtincanhan.index') }}">
-                        {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li><a class="dropdown-item" href="{{ route('thongtincanhan.index') }}" style="color: red;  ">Thông tin cá nhân</a></li>
-                        <li class="list-group-item"><a href="{{ route('thongtincanhan._edit') }}" style="color: red; ">Cập nhật thông tin</a></li>
-                        <li class="list-group-item"><a href="" style="color: red; ">Danh sách đơn hàng</a></li>
-                        <li>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();" style=" color: #215fa6;">
-                                Đăng xuất
-                            </a>
-                        </li>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </ul>
-                </li>
-            @endguest
 
+<nav class="navbar navbar-inverse header-bottom"  style="background-color:#215fa6; margin-bottom: 0px;" >
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">9x shop </a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li class=""><a href="{{ route('trangchu') }}">Trang chủ</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="{{ route('loaisanpham',1) }}">Sản phẩm <span class="caret"></span></a>
+                <ul class="dropdown-menu"  style="font-size: 22px;">
+                        @foreach($loai_sp as $loai)
+                        <li><a href="{{route('loaisanpham',$loai->id)}}">{{$loai->name}}</a></li>
+                      @endforeach
                 </ul>
-                <div class="clearfix"></div>
-            </nav>
-
-        </div> <!-- .container -->
-    </div> <!-- .header-bottom -->
+              </li>
+              <li><a href="{{ route('gioithieu') }}">Giới thiệu</a></li>
+              <li><a href="{{ route('lienhe') }}">Liên hệ</a></li>
+              <li><a href="{{ route('dathang') }}">Giỏ hàng</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              @guest
+                <li><a href="{{ route('register') }}"><span class="glyphicon glyphicon-user"></span> Đăng ký</a></li>
+                <li><a href="{{ route('login') }}"><span class="glyphicon glyphicon-log-in" style="margin-right:10px"></span>Đăng nhập</a></li>
+              @else
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="">{{ Auth::user()->name }} <span class="caret"></span></a>
+                    <ul class="dropdown-menu"  style="font-size: 22px;">
+                            <li><a href="{{route('thongtincanhan.index')}}">Thông tin cá nhân</a></li>
+                            <li><a href="{{route('thongtincanhan._edit')}}">Cập nhật thông tin</a></li>
+                            <li><a href="{{route('thongtincanhan.index')}}">Danh sách đơn hàng</a></li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();" style=" color: #215fa6;">
+                                    Đăng xuất
+                                </a>
+                            </li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                    </ul>
+                  </li>
+              @endguest
+            </ul>
+          </div>
+        </div>
+</nav>
+    {{-- -------------------------------------------------------------------------------------------------------------- --}}
 </div> <!-- #header -->

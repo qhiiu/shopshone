@@ -28,7 +28,7 @@
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong  style="font-size:19px; color:red;">{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
@@ -44,7 +44,7 @@
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong  style="font-size:19px; color:red;">{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
@@ -60,7 +60,7 @@
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong  style="font-size:19px; color:red;">{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
@@ -82,12 +82,20 @@
                                 <button type="submit" class="btn btn-primary"  style="font-size: 25px;">
                                     {{ __('Đăng ký') }}
                                 </button>
+                                <div class="space40">&nbsp;</div>
+                                <div class="mb-2">Hoặc đăng ký bằng </div>
+                                <div class="space15">&nbsp;</div>
+                                <div>
+                                    <a href="{{ route('login.facebook') }}" class="btn btn-primary "   style="font-size: 25px;    margin-right: 10px;">Facebook</a>
+                                    <a href="{{ route('login.google') }}" class="btn btn-danger"   style="font-size: 25px;"> Google</a>
+                                </div>
                             </div>
                         </div>
                     </form>
                 </div>
         </div>
     </div>
+    <div class="space100">&nbsp;</div>
     <div class="space100">&nbsp;</div>
 </div>
 @endsection

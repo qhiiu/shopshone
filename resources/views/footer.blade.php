@@ -10,7 +10,7 @@
                     <p style="color:#000000;">Quy chế hoạt động của 9x shop</p>
                 </div>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="widget">
                     <h4 class="widget-title" style="color:#DF0101;">Về các bạn</h4>
                     {{-- <div>
@@ -30,12 +30,12 @@
                     <p style="color:#000000;">Nạp tiền điện thoại</p>
                 </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
              <div class="col-sm-10">
                 <div class="widget">
                     <h4 class="widget-title" style="color:#DF0101;">Đối với người bán hàng</h4>
                     <div>
-                        <div class="contact-info">
+                        <div class="contact-info" style="padding: 0;">
                            <p style="color:#000000;">Mở shop trên 9x shop</p>
                            <p style="color:#000000;">Quy chế bán hàng</p>
                            <p style="color:#000000;">Chính sách bán hàng</p>
@@ -49,7 +49,6 @@
                 <div class="widget">
                     <h4 class="widget-title" style="color:#DF0101;">Đăng ký nhận thông báo từ 9x Shop</h4>
                     <form action="{{ route('register') }}" method="">
-                        <input type="email" name="your_email"  style="background-color:#E0F8E6">
                         <button class="pull-right" type="submit"  style="background-color:#5858FA">Đăng ký <i class="fa fa-chevron-right"></i></button>
                     </form>
                 </div>

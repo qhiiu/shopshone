@@ -56,6 +56,7 @@ Route::get('del-cart/{id}',[
      'as'=>'dathang',
     'uses'=>'PageController@getpostCheckout'
  ]);
+ Route::get('tintuc/{id}', 'PageController@tintuc')->name('tintuc');
 
  Auth::routes();
  Route::get('/home', 'HomeController@index')->name('home');

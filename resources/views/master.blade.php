@@ -29,20 +29,50 @@
         .main-menu>ul.l-inline> li> a {
             font-family: -webkit-pictograph;
             font-size: x-large;
+            padding: 10px 25px;
         }
         .main-menu li {
             position: relative;
             width: 200px;
         }
         .cart {
-    border: 1px solid #e1e1e1;
-    height: 50px;
-    width: 200px;
-    font-size: x-large;
-    line-height: 47px;
-    padding: 0 10px;
-    cursor: pointer;
-}
+            border: 1px solid #e1e1e1;
+            height: 50px;
+            width: 200px;
+            font-size: x-large;
+            line-height: 47px;
+            padding: 0 10px;
+            cursor: pointer;
+        }
+
+        /* ----------------- */
+        .collapse , .navbar-collapse{
+            font-size: 25px;
+        }
+        .navbar-inverse .navbar-nav>li>a {
+            color: white;
+        }
+        .navbar-inverse .navbar-nav>li>a:hover {
+            color: lightgreen;
+        }
+        .navbar-nav>li {
+            float: left;
+            padding: 5px 20px;
+        }
+        .navbar-brand {
+            padding: 20px;
+            margin-left: -15px;
+            font-size: 23px;
+        }
+        .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus {
+            background-color: #215fa6;
+            color: white;
+        }
+        .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+            text-decoration: none;
+            color: red;
+            background-color: powderblue;
+        }
     </style>
 </head>
 <body style="font-family: -webkit-pictograph;">
