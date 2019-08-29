@@ -82,7 +82,7 @@
                 <li><a href="{{ route('login') }}"><span class="glyphicon glyphicon-log-in" style="margin-right:10px"></span>Đăng nhập</a></li>
               @else
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="">{{ Auth::user()->name }} <span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href=""><span class="glyphicon glyphicon-user" style="margin-right:10px"></span>{{ Auth::user()->name }} <span class="caret"></span></a>
                     <ul class="dropdown-menu"  style="font-size: 22px;">
                             <li><a href="{{route('thongtincanhan.index')}}">Thông tin cá nhân</a></li>
                             <li><a href="{{route('thongtincanhan._edit')}}">Cập nhật thông tin</a></li>
