@@ -5,20 +5,14 @@
 
     @include('admin/notification')
 
-    <form role="form" method="post" action="{{ url('admin/slides') }}">
+    <form role="form" method="post" action="{{ url('admin/slides') }}"  enctype="multipart/form-data">
         @csrf
       <div class="box-body">
-        <div class="form-group">
-          <label for="exampleInputEmail1">link</label>
-          <input type="text" class="form-control" name="link" id="exampleInputEmail1" placeholder="Enter link">
-        </div>
-
-      <div class="form-group">
-                <label for="exampleInputPassword1">Image  *</label>
-                <input type="text" name="image" class="form-control" id="exampleInputPassword1" placeholder="image path">
-       </div>
+            <div class="form-group">
+                <label >Image</label>
+                <input type="file" name="image" >
+           </div>
       </div>
-
       <div class="box-footer">
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>

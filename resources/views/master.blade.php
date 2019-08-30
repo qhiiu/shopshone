@@ -17,24 +17,8 @@
     <link rel="stylesheet" title="style" href="source/assets/dest/css/huong-style.css">
 
     <style>
-        .sub-menu li {background: ;}
         .ribbon { z-index: 1;}
-        .sub-menu { z-index: 1000;
-            width: 200px;
-        }
-        .sub-menu li a {
-            font-size: 19px;
-            font-family: -webkit-pictograph;
-        }
-        .main-menu>ul.l-inline> li> a {
-            font-family: -webkit-pictograph;
-            font-size: x-large;
-            padding: 10px 25px;
-        }
-        .main-menu li {
-            position: relative;
-            width: 200px;
-        }
+
         .cart {
             border: 1px solid #e1e1e1;
             height: 50px;
@@ -46,6 +30,11 @@
         }
 
         /* ----------------- */
+        .beta-lists>* {
+            padding: 13px;
+            border-bottom: 1px dotted #e1e1e1;
+            margin-top: 0;
+        }
         .collapse , .navbar-collapse{
             font-size: 25px;
         }
@@ -72,6 +61,26 @@
             text-decoration: none;
             color: red;
             background-color: powderblue;
+        }
+        .aside-menu {
+            list-style: none;
+            background: white;
+            border: 1px solid #29bef1;
+        }
+        .aside-menu li a{
+            padding: 10px 2px;
+        }
+        .list-group {
+            border: 1px solid sandybrown;
+        }
+        .fixNav.col-sm-12 {
+            width: 16.6666666666%;
+            position: fixed;
+            top: 130px;
+            left: 75px;
+            z-index: 1;
+            border-bottom-width: 0px;
+            border-top-width: 0px;  
         }
     </style>
 </head>

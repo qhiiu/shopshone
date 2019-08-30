@@ -18,7 +18,6 @@
         <tbody>
         <tr>
           <th>id</th>
-          <th>link</th>
           <th>image</th>
 
           <th>created_at</th>
@@ -28,8 +27,10 @@
         @foreach ($list as $r)
         <tr>
           <td>{{$r->id}}</td>
-          <td>{{$r->link}}</td>
-          <td>{{$r->image}}</td>
+          <td>
+              {{ $r->image}} <br>
+              <img src="{{ asset($r->image) }}" alt="loading ..." height="50px">
+          </td>
 
           <td>{{$r->created_at}}</td>
           <td>{{$r->updated_at}}</td>

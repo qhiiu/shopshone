@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\UploadfileController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -95,3 +97,5 @@ Route::get('login/google/callback', 'Auth\LoginController@g_handleProviderCallba
 
 
 
+
+Route::get('/uploadfile', "UploadfileController@index");

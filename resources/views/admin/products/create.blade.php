@@ -9,7 +9,7 @@
     @include('admin.notification')
 
     <!-- form start -->
-    <form role="form" action="{{ route('products.store') }}" method="post">
+    <form role="form" action="{{ route('products.store') }}" method="post" enctype="multipart/form-data">
         @csrf
       <div class="box-body">
         <div class="form-group">
@@ -40,12 +40,12 @@
             <input type="number" class="form-control" placeholder="$" name="promotion_price">
         </div>
         <div class="form-group">
-            <label >image</label>
-            <input type="text" class="form-control" placeholder="image" name="image">
+                <label for="exampleInputPassword1">Image</label>
+                <input type="file" name="image" >
         </div>
         <div class="form-group">
             <label >unit *</label>
-            <input type="text" class="form-control" placeholder="unit" name="unit">
+            <input type="text" class="form-control" value="chiếc" name="unit">
         </div>
         <div>
             <label><b>new *</b></label>

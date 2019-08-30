@@ -46,7 +46,7 @@
                 }
                 .abc{
                     display: inline-block;
-                    width:400px;
+                    width:500px;
                 }
 
                 </style>

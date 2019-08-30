@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Slides;
+use Faker\Provider\File;
+
 class SlidesController extends Controller
 {
     /**
@@ -33,14 +35,18 @@ class SlidesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'link' => '',
-            'image' =>'required',
+            'image' => 'required|image|mimes:jpg,jpeg,png,gif|max:2048',
             'updated_at' =>'',
             'created_at' => ''
         ]);
+
+
+        $image = $request->file('image');
+        $image_name = 'source/image/'.'slide'.'/'.time().'.'.$image->getClientOriginalExtension();
+        $image->move(public_path('source/image/slide'),$image_name);
+
         $Slides = new Slides();
-        $Slides->link = $request->link;
-        $Slides->image = $request->image;
+        $Slides->image = $image_name;
         $Slides->save();
         return redirect()->route('slides.create')->with('success','insert new record success');
     }
@@ -76,14 +82,31 @@ class SlidesController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'link' => '',
-            'image' => 'required',
+            'image'=>'mimes:jpg,jpeg,png,gif'
         ]);
-        $Slides = Slides::find($id);
-        $Slides->link = $request->link;
-        $Slides->image = $request->image;
-        $Slides->save();
-        return redirect()->route('slides.index')->with('success','update record success');
+
+        if($request->file('image') == null){
+            return redirect()->route('slides.index')->with('success','update record success');
+        }else{
+            //delete old image to create new image
+            $old_image = DB::table('slide')->where('id',$id)->get();
+            $old_image_path = public_path($old_image[0]->image);
+            if(file_exists($old_image_path) && is_file($old_image_path)){
+                unlink($old_image_path);
+            }
+
+            //Create new image in folder
+            $image = $request->file('image');
+            $image_name = 'source/image/'.'slide'.'/'.time().'.'.$image->getClientOriginalExtension();
+            $image->move(public_path('source/image/slide'),$image_name);
+
+            //Create record in DB
+            $Slides = Slides::find($id);
+            $Slides->image = $image_name;
+            $Slides->save();
+            return redirect()->route('slides.index')->with('success','update record success');
+        }
+        
     }
     /**
      * Remove the specified resource from storage.
@@ -93,6 +116,14 @@ class SlidesController extends Controller
      */
     public function destroy($id)
     {
+        //delete image in folder
+        $old_image = DB::table('slide')->where('id',$id)->get();
+        $old_image_path = public_path($old_image[0]->image);
+        if(file_exists($old_image_path) && is_file($old_image_path)){
+            unlink($old_image_path);
+        }
+
+        //delete record in DB
         $Slides = Slides::find($id);
         $Slides->delete();
         ;

@@ -11,7 +11,7 @@
                     <!-- THE FIRST SLIDE -->
                     <li data-transition="boxfade" data-slotamount="20" class="active-revslide" style="width: 100%; height: 100%; overflow: hidden; z-index: 18; visibility: hidden; opacity: 0;">
                         <div class="slotholder" style="width:100%;height:100%;" data-duration="undefined" data-zoomstart="undefined" data-zoomend="undefined" data-rotationstart="undefined" data-rotationend="undefined" data-ease="undefined" data-bgpositionend="undefined" data-bgposition="undefined" data-kenburns="undefined" data-easeme="undefined" data-bgfit="undefined" data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined">
-                            <div class="tp-bgimg defaultimg" data-lazyload="undefined" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat" data-lazydone="undefined" src="source/image/slide/{{$sl->image}}" data-src="source/image/slide/{{$sl->image}}" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url('source/image/slide/{{$sl->image}}'); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 1; visibility: inherit;">
+                            <div class="tp-bgimg defaultimg" data-lazyload="undefined" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat" data-lazydone="undefined" src="{{$sl->image}}" data-src="{{$sl->image}}" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url('{{$sl->image}}'); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 1; visibility: inherit;">
                             </div>
                         </div>
                     </li>
@@ -49,7 +49,7 @@
                                                     @endif
 
                                                     <div class="single-item-header">
-                                                        <a href="{{route('chitietsanpham',$new->id)}}"><img src="source/image/dienthoai/{{$new->image}}" alt="" style="height: 280px;"></a>
+                                                        <a href="{{route('chitietsanpham',$new->id)}}"><img src="{{$new->image}}" alt="loading ... " style="height: 280px;"></a>
                                                     </div>
                                                     <div class="single-item-body">
                                                         <p class="single-item-title"  style="font-size: 21px">{{ $new->name }} </p>
@@ -89,7 +89,7 @@
                                             <div class="single-item">
                                                 <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
                                                 <div class="single-item-header">
-                                                    <a href="{{route('chitietsanpham',$spkm->id)}}" ><img src="source/image/dienthoai/{{ $spkm->image}}" alt=""  style="height: 280px;"></a>
+                                                    <a href="{{route('chitietsanpham',$spkm->id)}}" ><img src="{{ $spkm->image}}" alt="loading ... "  style="height: 280px;"></a>
                                                 </div>
                                                 <div class="single-item-body">
                                                 <p class="single-item-title" style="font-size: 21px">{{$spkm->name}}</p>
@@ -117,30 +117,60 @@
                         </div> <!-- .main-content -->
                         </div> <!-- #content -->
         </div>
-        <div class="col-md-3 aside" style="width: 21%">
+        <div class="col-md-3 aside" style="width: 26%">
                 <!-- ------ Sản phẩm mới nhất ----------------------------------------------------------------- -->
-            <div class="widget">
-                <h3 class="widget-title">Tin tức mới</h3>
-                <div class="widget-body">
-                    <div class="beta-sales beta-lists">
-                        @foreach ($news as $news)
-                            <div class="media beta-sales-item row">
-                                <div class="col-md-5" style="padding-left: 10px;">
-                                    <a href="{{route('tintuc',$news->id)}}"><img src="source/image/tintuc/{{$news->image}}" alt=" loading ... " style="height: 60px;"></a>
-                                </div>
-                                <div class="col-md-7" style="padding-left: 0;">
-                                    <div class="media-body">
-                                        <span class="beta-sales-price" style="font-size:15px">
-                                            <a href="{{route('tintuc',$news->id)}}">{{ $news->title }} </a>
-                                        </span>
+            <div class="row">
+                    <div class="widget">
+                        <h3 class="widget-title">Tin tức mới</h3>
+                        <div class="widget-body">
+                            <div class="beta-sales beta-lists">
+                                @foreach ($news as $news)
+                                    <div class="media beta-sales-item row">
+                                        <div class="col-md-3" style="padding-left: 10px;">
+                                            <a href="{{route('tintuc',$news->id)}}"><img src="{{$news->image}}" alt=" loading ... " style="height: 60px;"></a>
+                                        </div>
+                                        <div class="col-md-8" style="padding-left: 0;">
+                                            <div class="media-body">
+                                                <span class="beta-sales-price" style="font-size:19px">
+                                                    <a href="{{route('tintuc',$news->id)}}">{{ $news->title }} </a>
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                @endforeach
                             </div>
-                        @endforeach
+                        </div>
                     </div>
-                </div>
             </div>
-    <!-- ----------------------------------------------------------------------- -->
+            {{-- --------------------------- phuc kien ------------------------------------------------------------- --}}
+            <div class="row">
+                    <div class="widget">
+                        <h3 class="widget-title">Phụ kiên Smartphone</h3>
+                        <div class="widget-body">
+                            <div class="beta-sales beta-lists">
+                                @foreach ($phukien as $phukien)
+                                    <div class="media beta-sales-item row">
+                                        <div class="col-md-3">
+                                            <a href="{{route('chitietsanpham',$phukien->id)}}"><img src="{{$phukien->image}}" alt="loading ..." style="height: 60px;"></a>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="media-body">
+                                                <div  class="beta-sales-price"><a href="{{ route('chitietsanpham',$phukien->id) }}">{{ $phukien->name }}</a></div>
+                                                @if($phukien->promotion_price == 0)
+                                                    <span class ="flash-del"></span><br>
+                                                    Giá : <span class ="flash-sale" >{{number_format($phukien->unit_price)}} VND</span>
+                                                @else
+                                                    <span class ="flash-del" >{{number_format($phukien->unit_price)}} VND </span><br>
+                                                    Giá : <span class ="flash-sale" >{{number_format($phukien->promotion_price)}} VND</span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+            </div>
         </div>
     </div>
 </div>

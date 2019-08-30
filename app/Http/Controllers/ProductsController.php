@@ -39,17 +39,23 @@ class ProductsController extends Controller
             'description' => '',
             'unit_price' =>'required|numeric',
             'promotion_price' => 'required|numeric',
-            'image' => '',
             'unit' => 'required|string',
             'new' => 'required',
+            'image' => 'required|image|mimes:jpg,jpeg,png,gif|max:2048'
         ]);
+        //Create image in folder
+        $image = $request->file('image');
+        $image_name = 'source/image/'.'dienthoai'.'/'.time().'.'.$image->getClientOriginalExtension();
+        $image->move(public_path('source/image/dienthoai'),$image_name);
+
+        //Create record in DB
         $product = new Product();
         $product->name = $request->name;
         $product->id_type = $request->id_type;
         $product->description = $request->description;
         $product->unit_price = $request->unit_price;
         $product->promotion_price = $request->promotion_price;
-        $product->image = $request->image;
+        $product->image = $image_name;
         $product->unit = $request->unit;
         $product->new = $request->new;
         $product->save();
@@ -94,21 +100,50 @@ class ProductsController extends Controller
             'description' => '',
             'unit_price' =>'required|numeric',
             'promotion_price' => 'required|numeric',
-            'image' => '',
             'unit' => 'required|string',
             'new' => 'required',
+            'image'=>'max:2048|mimes:jpg,jpeg,png,gif'
+
         ]);
+
+        if($request->file('image') == null){
+            $product = Product::find($id);
+            $product->name = $request->name;
+            $product->id_type = $request->id_type;
+            $product->description = $request->description;
+            $product->unit_price = $request->unit_price;
+            $product->promotion_price = $request->promotion_price;
+            $product->unit = $request->unit;
+            $product->new = $request->new;
+            $product->save();
+            return redirect()->route('products.index')->with('success','update record success');
+        }else{
+            
+        //delete old image to create new image
+        $old_image = DB::table('products')->where('id',$id)->get();
+        $old_image_path = public_path($old_image[0]->image);
+        if(file_exists($old_image_path) && is_file($old_image_path)){
+            unlink($old_image_path);
+        }
+
+        //Create new image in folder
+        $image = $request->file('image');
+        $image_name = 'source/image/'.'dienthoai'.'/'.time().'.'.$image->getClientOriginalExtension();
+        $image->move(public_path('source/image/dienthoai'),$image_name);
+
+        //Create record in DB
         $product = Product::find($id);
         $product->name = $request->name;
         $product->id_type = $request->id_type;
         $product->description = $request->description;
         $product->unit_price = $request->unit_price;
         $product->promotion_price = $request->promotion_price;
-        $product->image = $request->image;
+        $product->image = $image_name;
         $product->unit = $request->unit;
         $product->new = $request->new;
         $product->save();
         return redirect()->route('products.index')->with('success','update record success');
+        }
     }
     /**
      * Remove the specified resource from storage.
@@ -118,6 +153,14 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
+        //delete image in folder
+        $old_image = DB::table('products')->where('id',$id)->get();
+        $old_image_path = public_path($old_image[0]->image);
+        if(file_exists($old_image_path) && is_file($old_image_path)){
+            unlink($old_image_path);
+        }
+
+        //delete record in DB
         $Product = Product::find($id);
         $Product->delete();
         return redirect(url()->previous())->with('success','Delete success');

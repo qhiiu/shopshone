@@ -10,79 +10,76 @@
 
                 <div>
                     @foreach ($list as $r)
-                            <p>
-                                <button class="btn btn-primary abc" type="button" data-toggle="collapse" data-target="#collapseExample{{$r->id}}" aria-expanded="false" aria-controls="collapseExample{{$r->id}}">
-                                    <div>id :
-                                        <span >{{$r->id}}</span>
-                                        /
-                                        <span >{{ $r->name }}</span>
-                                    </div>
-                                </button>
-                                {{-- ------------------ ----------------- --}}
+                            <div class="row" style="margin-bottom:5px;margin-left:10px">
+                                    <button class="btn btn-primary abc" type="button" data-toggle="collapse" data-target="#collapseExample{{$r->id}}" aria-expanded="false" aria-controls="collapseExample{{$r->id}}">
+                                        <div>
+                                            <span >{{ $r->name }}</span>
+                                            <span>
+                                                <img src="{{ asset($r->image) }}" alt="loading ..." height="30px">
+                                            </span>
+                                        </div>
+                                    </button>
 
-                                <a  class="btn btn-info" href="{{ action('ProductsController@edit',$r->id) }}">Edit</a>
-
-                                <form class="delete_form " action="{{ action('ProductsController@destroy',$r->id) }} " method="POST">
-                                        @csrf
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <button type="submit" class="btn btn-danger delete">Delete</button>
-                                </form>
-                            </p>
+                                    <a  class="btn btn-info" href="{{ action('ProductsController@edit',$r->id) }}">Edit</a>
+                                    <form class="delete_form " action="{{ action('ProductsController@destroy',$r->id) }} " method="POST">
+                                            @csrf
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit" class="btn btn-danger delete">Delete</button>
+                                    </form>
+                            </div>
 
 
                             <div class="collapse" id="collapseExample{{$r->id}}">
                                 <div class="card card-body">
-                                    <span class="product_column1">id</span>
-                                    <span class="product_column2">{{$r->id}}</span>
+                                    <b class="col-md-2" style="width:10%">id</b>
+                                    <span class="col-md-10">{{$r->id}}</span>
                                 </div>
                                 <div  class="card card-body">
-                                    <span class="product_column1">name</span>
-                                    <span class="product_column2">{{$r->name}}</span>
+                                    <b class="col-md-2" style="width:10%">name</b>
+                                    <span class="col-md-10">{{$r->name}}</span>
                                 </div>
                                 <div  class="card card-body">
-                                    <span class="product_column1">id_type</span>
-                                    <span class="product_column2">{{$r->id_type}}</span>
+                                    <b class="col-md-2" style="width:10%">id_type</b>
+                                    <span class="col-md-10">{{$r->id_type}}</span>
                                 </div>
                                 <br>
                                 <div  class="card card-body">
-                                    <span class="product_column1">description</span>
-                                    <span class="product_column2">{{$r->description}}</span>
+                                    <b class="col-md-2" style="width:10%">description</b>
+                                    <span class="col-md-10">{{$r->description}}</span>
                                 </div>
                                 <br>
                                 <div  class="card card-body">
-                                    <span class="product_column1">unit_price</span>
-                                    <span class="product_column2">{{$r->unit_price}}</span>
+                                    <b class="col-md-2" style="width:10%">unit_price</b>
+                                    <span class="col-md-10">{{$r->unit_price}}</span>
                                 </div>
                                 <div  class="card card-body">
-                                    <span class="product_column1">promotion_price</span>
-                                    <span class="product_column2">{{$r->promotion_price}}</span>
+                                    <b class="col-md-2" style="width:10%">promotion_price</b>
+                                    <span class="col-md-10">{{$r->promotion_price}}</span>
                                 </div>
                                 <div  class="card card-body">
-                                    <span class="product_column1">image</span>
-                                    <span class="product_column2">{{$r->image}}</span>
+                                    <b class="col-md-2" style="width:10%">image</b>
+                                    <span class="col-md-10">{{$r->image}} <img src="{{ asset($r->image) }}" alt="loading ..." height="50px"></span>
                                 </div>
                                 <div class="card card-body">
-                                    <span class="product_column1">unit</span>
-                                    <span class="product_column2">{{$r->unit}}</span>
+                                    <b class="col-md-2" style="width:10%">unit</b>
+                                    <span class="col-md-10">{{$r->unit}}</span>
                                 </div>
                                 <div class="card card-body">
-                                    <span class="product_column1">new</span>
-                                    <span class="product_column2">{{$r->new}}</span>
+                                    <b class="col-md-2" style="width:10%">new</b>
+                                    <span class="col-md-10">{{$r->new}}</span>
                                 </div>
 
                                 <br>
 
                                 <div class="card card-body">
-                                    <span class="product_column1">created_at</span>
-                                    <span class="product_column2">{{$r->created_at}}</span>
+                                    <b class="col-md-2" style="width:10%">created_at</b>
+                                    <span class="col-md-10">{{$r->created_at}}</span>
                                 </div>
                                 <div class="card card-body">
-                                    <span class="product_column1">updated_at</span>
-                                    <span class="product_column2">{{$r->updated_at}}</span>
+                                    <b class="col-md-2" style="width:10%">updated_at</b>
+                                    <span class="col-md-10">{{$r->updated_at}}</span>
                                 </div>
-
                             </div>
-
                     @endforeach
                 </div>
                     {{-- ----------------------- end products---------------------------- --}}

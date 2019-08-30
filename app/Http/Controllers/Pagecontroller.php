@@ -21,11 +21,12 @@ class Pagecontroller extends Controller
         $news = News::orderBy('id', 'desc')->skip(0)->take(7)->get();
         $new_product = Product::where('new',1)->paginate(9);//phaan trang
         $sanpham_khuyenmai= Product::where('promotion_price','<>',0)->paginate(6);
-        return view('page/trangchu',compact('slide','new_product','sanpham_khuyenmai','news'));
+        $phukien = Product::where('id_type',2)->skip(0)->take('5')->get();
+        return view('page/trangchu',compact('slide','new_product','sanpham_khuyenmai','news','phukien'));
     }
     public function getLoaiSp($type){
         $sp_theoloai = Product::where('id_type',$type)->paginate(9);
-        $sp_khac= Product::where('id_type','<>',$type)->paginate(9);
+        $sp_khac= Product::where('id_type','<>',$type)->paginate(6);
         $loai =ProductType::all();
         $loai_sp=ProductType::where ('id',$type)->first();
         $new_product = Product::where('new',1)->skip(0)->take(7)->get();// sản phẩm mới

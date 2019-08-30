@@ -33,14 +33,10 @@ class ProductsTypeController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name' => 'required|unique:type_products,name',
-            'description' => '',
-            'image' => '',
+            'name' => 'required|unique:type_products,name'
         ]);
         $ProductType = new ProductType();
         $ProductType->name = $request->name;
-        $ProductType->description = $request->description;
-        $ProductType->image = $request->image;
         $ProductType->save();
         return redirect()->route('productsType.create')->with('success','insert new record success');
     }
@@ -76,14 +72,11 @@ class ProductsTypeController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'name' => 'required|unique:type_products,name,'.$id,
-            'description' => '',
-            'image' => '',
+            'name' => 'required|unique:type_products,name,'.$id
         ]);
         $ProductType = ProductType::find($id);
         $ProductType->name = $request->name;
-        $ProductType->description = $request->description;
-        $ProductType->image = $request->image;
+
         $ProductType->save();
         return redirect()->route('productsType.index')->with('success','update record success');
     }

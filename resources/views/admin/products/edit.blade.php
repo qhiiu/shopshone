@@ -14,7 +14,7 @@
 @foreach ($list as $l)
 
 
-    <form class="update_form" role="form" method="POST" action="{{ action('ProductsController@update',$id) }}">
+    <form class="update_form" role="form" method="POST" action="{{ action('ProductsController@update',$id) }}" enctype="multipart/form-data">
             @csrf
 
             <input type="hidden" name="_method" value="PATCH">
@@ -22,24 +22,24 @@
             <div><b> id </b> = {{ $id }}</div>
             <br><br>
 
-
            <div class="form-group">
                 <label >name *</label>
                 <input type="text" class="form-control" value="{{ $l->name }}" name="name">
         </div>
+
         <div class="input-group mb-3">
                 <label class="input-group-text"  >id_type *</label>
                 <br>
             <select class="custom-select"  name="id_type">
                 @foreach ($list_type_products as $r)
-                    <option value="{{ $r->id }}" >{{ $r->name }}</option>
+                    <option value="{{ $r->id }}" @if ($r->id == $l->id_type)    {{ 'selected' }}   @endif>{{ $r->name }} </option>
                 @endforeach
             </select>
         </div>
         <br>
         <div class="form-group">
           <label for="">description</label>
-          <textarea class="form-control" name="description" rows="5">{{ $l->description }}</textarea>
+          <textarea class="form-control" name="description" rows="8">{{ $l->description }}</textarea>
         </div>
 
         <div class="form-group">
@@ -51,9 +51,13 @@
             <input type="number" class="form-control" value="{{ $l->promotion_price }}" name="promotion_price">
         </div>
         <div class="form-group">
-            <label >image</label>
-            <input type="text" class="form-control" value="{{ $l->image }}" name="image">
-        </div>
+                <label>Image</label>
+                <div>
+                    <img src="{{ asset($l->image) }}" alt="loading ..." height="200px">
+                </div><br>
+                <span> Change image</span>
+                <input type="file" name="image">
+       </div>
         <div class="form-group">
             <label >unit *</label>
             <input type="text" class="form-control" value="{{ $l->unit }}" name="unit">
@@ -76,7 +80,7 @@
   </div>
 
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
       $(document).ready(function () {
           $('.update_form').on('submit',function(){
@@ -87,5 +91,5 @@
               }
           });
       });
-  </script>
+  </script> --}}
 @endsection

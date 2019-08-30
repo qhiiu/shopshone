@@ -10,7 +10,7 @@
     <!-- form start -->
 @foreach ($list as $l)
 
-    <form class="update_form" role="form" method="POST" action="{{ action('NewsController@update',$id) }}">
+    <form class="update_form" role="form" method="POST" action="{{ action('NewsController@update',$id) }}" enctype="multipart/form-data">
         @csrf
 
         <input type="hidden" name="_method" value="PATCH">
@@ -27,14 +27,16 @@
             <label >content  *</label><br>
             <textarea class="form-control"  name="content" id="" cols="" rows="5" >{{ $l->content }}</textarea>
         </div>
+
         <div class="form-group">
-                <label >Images path </label><br>
-                <input type="text" name="image" value="{{ $l->image }}">
-            </div>
-
+                <label>Image</label>
+                <div>
+                    <img src="{{ asset($l->image) }}" alt="loading ..." height="200px">
+                </div><br>
+                <span> Change image</span>
+                <input type="file" name="image">
+       </div>
       </div>
-      <!-- /.box-body -->
-
       <div class="box-footer">
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>
@@ -44,8 +46,8 @@
   </div>
 
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script>
+  {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> --}}
+  {{-- <script>
       $(document).ready(function () {
           $('.update_form').on('submit',function(){
               if(confirm('Update : Are you sure ? ')){
@@ -55,5 +57,5 @@
               }
           });
       });
-  </script>
+  </script> --}}
 @endsection

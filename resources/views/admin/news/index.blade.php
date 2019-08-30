@@ -31,7 +31,10 @@
           <td>{{$r->id}}</td>
           <td>{{$r->title}}</td>
           <td>{{$r->content}}</td>
-          <td>{{$r->image}}</td>
+          <td>
+              {{$r->image}} <br>
+              <img src="{{ asset($r->image) }}" alt="loading ..." height="70px">
+        </td>
 
           <td>{{$r->created_at}}</td>
           <td>{{$r->updated_at}}</td>

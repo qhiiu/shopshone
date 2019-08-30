@@ -19,8 +19,6 @@
         <tr>
           <th>id</th>
           <th>name</th>
-          <th>description</th>
-          <th>image</th>
 
           <th>created_at</th>
           <th>updated_at</th>
@@ -30,8 +28,6 @@
         <tr>
           <td>{{$r->id}}</td>
           <td>{{$r->name}}</td>
-          <td>{{$r->description}}</td>
-          <td>{{$r->image}}</td>
 
           <td>{{$r->created_at}}</td>
           <td>{{$r->updated_at}}</td>

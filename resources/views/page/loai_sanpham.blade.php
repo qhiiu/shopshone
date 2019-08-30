@@ -8,13 +8,26 @@
             <div class="space60">&nbsp;</div>
             <div class="row">
                 <div class="col-sm-1" style="width: 5%;"></div>
-                <div class="col-sm-2">
-                    <ul class="aside-menu">
-                        @foreach($loai as $l)
-                            <li><b><a href="{{route('loaisanpham',$l->id)}}"  style="    font-size: large;    color: rgba(255, 0, 210, 0.97);">{{$l->name}}</a></b></li>
-                        @endforeach
-                    </ul>
+
+
+                {{-- --------------------- side bar left--------------  --}}
+                <div class="col-sm-2" style="   padding-left: 0px;   padding-right: 0px;">
+
+                    <div class="col-sm-12 header-bottom" style="    border-top-width: 0px;border-bottom-width: 0px;">
+                    {{-- <div class="col-sm-2"> --}}
+                        <ul class="list-group">
+                            @foreach($loai as $l)
+                                <li class="list-group-item"><a href="{{route('loaisanpham',$l->id)}}"  style="    font-size: large; ">{{$l->name}}</a></li>
+                            @endforeach
+                        </ul>
+                    {{-- </div> --}}
+                    </div>
                 </div>
+                {{-- ---------------------end side bar left--------------  --}}
+
+
+
+
                 <div class="col-sm-6" style=" width: 55%;">
                     <div class="beta-products-list">
                         <h1  style="  color: rgba(255, 0, 210, 0.97);text-align: center; font-family: -webkit-pictograph;" >{{$loai_sp->name}}</h1>
@@ -22,12 +35,12 @@
                         <div class="row" >
                            @foreach($sp_theoloai as $sp)
                             <div class="col-sm-4"  style="padding: 20px;">
-                                <div class="single-item st" data-image="source/image/dienthoai/{{$sp->image}}">
+                                <div class="single-item st" data-image="{{$sp->image}}">
                                         @if($sp->promotion_price > 0)
                                             <div class="ribbon-wrapper"><div  class="ribbon sale">Sale</div></div>
                                         @endif
                                             <div class="single-item-header" >
-                                                <a href="{{route('chitietsanpham',$sp->id)}}"><img src="source/image/dienthoai/{{$sp->image}}" alt="loading... " height="280px"></a>
+                                                <a href="{{route('chitietsanpham',$sp->id)}}"><img src="{{$sp->image}}" alt="loading... " height="280px"></a>
                                             </div>
 
                                     <div class="single-item-body">
@@ -52,14 +65,13 @@
                             @endforeach
                         </div>
                         {{ $sp_theoloai->links() }}
-                    </div> <!-- .beta-products-list -->
+                    </div> 
 
                     <div class="space50">&nbsp;</div>
 
                     <div class="beta-products-list">
-                        <h1  style="  color: rgba(255, 0, 210, 0.97);text-align: center;font-family: -webkit-pictograph;">Sản phẩm khác</h1>
+                        <h1  style="  color: rgba(255, 0, 210, 0.97);text-align: center;font-family: -webkit-pictograph;">Sản phẩm của shop</h1>
                         <div class="beta-products-details">
-                            {{-- <p class="pull-left">Tìm thấy {{count($sp_khac)}}</p> --}}
                             <div class="clearfix"></div>
                         </div>
                         <div class="row">
@@ -70,7 +82,7 @@
                                             <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
                                         @endif
                                         <div class="single-item-header st" >
-                                            <a href="{{ route('chitietsanpham',$spk->id) }}"><img src="source/image/dienthoai/{{$spk->image}}" alt=""  style="height: 250px;"></a>
+                                            <a href="{{ route('chitietsanpham',$spk->id) }}"><img src="{{$spk->image}}" alt=""  style="height: 250px;"></a>
                                         </div>
                                         <div class="single-item-body">
                                             <p class="single-item-title"  style="font-size: 21px">{{$spk->name}}</p>
@@ -92,12 +104,10 @@
                                     </div>
                                 </div>
                                 @endforeach
-
                         </div>
                         <div class="row">{{$sp_khac->links()}}</div>
                         <div class="space40">&nbsp;</div>
-
-                    </div> <!-- .beta-products-list -->
+                    </div> 
                 </div>
                 <div class="col-md-2 aside" style="width:20%">
                             <!-- ------ Sản phẩm mới nhất ----------------------------------------------------------------- -->
@@ -108,11 +118,11 @@
                                     @foreach ($new_product as $new)
                                         <div class="media beta-sales-item row">
                                             <div class="col-md-4">
-                                                <a class="st" href="{{route('chitietsanpham',$new->id)}}"><img src="source/image/dienthoai/{{$new->image}}" alt="" style="height: 60px;"></a>
+                                                <a class="st" href="{{route('chitietsanpham',$new->id)}}"><img src="{{$new->image}}" alt="loading ... " style="height: 60px;"></a>
                                             </div>
                                             <div class="col-md-7">
                                                 <div class="media-body">
-                                                    <span class="beta-sales-price">{{ $new->name }}</span><br>
+                                                    <div  class="beta-sales-price"><a href="{{ route('chitietsanpham',$new->id) }}">{{ $new->name }}</a></div>
                                                     @if($new->promotion_price == 0)
                                                         <span class ="flash-del"></span><br>
                                                         Giá : <span class ="flash-sale" >{{number_format($new->unit_price)}} VND</span>
@@ -128,9 +138,7 @@
                             </div>
                         </div>
                 </div>
-            </div> <!-- end section with sidebar and main content -->
-
-
+            </div> 
         </div> <!-- .main-content -->
     </div> <!-- #content -->
 </div> <!-- .container -->

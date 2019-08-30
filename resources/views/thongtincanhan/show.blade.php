@@ -60,5 +60,5 @@
         @endsection
 
 @else
-    <script>window.location = "http://localhost:8080/shopphone/public/index";</script>
+    <script>window.location = "http://localhost:8080/shopphone/public/login";</script>
 @endif

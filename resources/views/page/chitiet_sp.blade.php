@@ -7,16 +7,11 @@
     <div id="content">
         <div class="row">
             <div class="col-sm-9">
-                <div class="inner-header">
-                    <div class="container">
-                        <div class="pull-left">
-                            <h1 class="inner-title"  style="    font-family: -webkit-pictograph;">Sản phẩm {{$sanpham->name}}</h1>
-                        </div>
-                    </div>
-                </div>
+                <h1 class="inner-title"  style="    font-family: -webkit-pictograph;">Sản phẩm {{$sanpham->name}}</h1>
+                <div class="space50">&nbsp;</div>
                 <div class="row">
                     <div class="col-sm-7">
-                        <img src="source/image/dienthoai/{{$sanpham->image}}" alt="loading ... " >
+                        <img src="{{$sanpham->image}}" alt="loading ... " >
                     </div>
                     <div class="col-sm-5">
                         <div class="single-item-body">
@@ -76,7 +71,7 @@
                                         <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
                                     @endif
                                 <div class="single-item-header">
-                                    <a href="{{route('chitietsanpham',$sptt->id)}}"><img src="source/image/dienthoai/{{$sptt->image}}" alt=""></a>
+                                    <a href="{{route('chitietsanpham',$sptt->id)}}"><img src="{{$sptt->image}}" alt=""></a>
                                 </div>
                                 <div class="single-item-body">
                                     <p class="single-item-title">{{$sptt->name}}</p>
@@ -113,11 +108,11 @@
 
                                 <div class="media beta-sales-item row">
                                     <div class="col-md-5">
-                                        <a href="{{route('chitietsanpham',$new->id)}}"><img src="source/image/dienthoai/{{$new->image}}" alt="" style="height: 60px;"></a>
+                                        <a href="{{route('chitietsanpham',$new->id)}}"><img src="{{$new->image}}" alt="" style="height: 60px;"></a>
                                     </div>
                                     <div class="col-md-7">
                                         <div class="media-body">
-                                            <span class="beta-sales-price">{{ $new->name }}</span><br>
+                                            <div  class="beta-sales-price"><a href="{{ route('chitietsanpham',$new->id) }}">{{ $new->name }}</a></div>
                                             @if($new->promotion_price == 0)
                                                 <span class ="flash-del"></span><br>
                                                 Giá : <span class ="flash-sale" >{{number_format($new->unit_price)}} VND</span>
