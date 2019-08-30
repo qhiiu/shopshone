@@ -27,57 +27,55 @@
                                             <button type="submit" class="btn btn-danger delete">Delete</button>
                                     </form>
                             </div>
-
-
-                            <div class="collapse" id="collapseExample{{$r->id}}">
+                            <div class="collapse" id="collapseExample{{$r->id}}" style="line-height: 28px;">
                                 <div class="card card-body">
-                                    <b class="col-md-2" style="width:10%">id</b>
-                                    <span class="col-md-10">{{$r->id}}</span>
+                                    <b class="col-md-2" style="width:10%;">id</b>
+                                    <span class="col-md-10" style="border-left:1px solid #d6d6d6;border-bottom:1px solid #d6d6d6">{{$r->id}}</span>
                                 </div>
                                 <div  class="card card-body">
-                                    <b class="col-md-2" style="width:10%">name</b>
-                                    <span class="col-md-10">{{$r->name}}</span>
+                                    <b class="col-md-2" style="width:10%;border-top:1px solid #d6d6d6">name</b>
+                                    <span class="col-md-10"  style="border-left:1px solid #d6d6d6;border-bottom:1px solid #d6d6d6">{{$r->name}}</span>
                                 </div>
                                 <div  class="card card-body">
-                                    <b class="col-md-2" style="width:10%">id_type</b>
-                                    <span class="col-md-10">{{$r->id_type}}</span>
+                                    <b class="col-md-2" style="width:10%;border-top:1px solid #d6d6d6">id_type</b>
+                                    <span class="col-md-10"  style="border-left:1px solid #d6d6d6;border-bottom:1px solid #d6d6d6">{{$r->id_type}}</span>
                                 </div>
                                 <br>
                                 <div  class="card card-body">
-                                    <b class="col-md-2" style="width:10%">description</b>
-                                    <span class="col-md-10">{{$r->description}}</span>
+                                    <b class="col-md-2" style="width:10%;border-top:1px solid #d6d6d6">description</b>
+                                    <span class="col-md-10" style="border-left:1px solid #d6d6d6;border-bottom:1px solid #d6d6d6">{{$r->description}}</span>
                                 </div>
                                 <br>
                                 <div  class="card card-body">
-                                    <b class="col-md-2" style="width:10%">unit_price</b>
-                                    <span class="col-md-10">{{$r->unit_price}}</span>
+                                    <b class="col-md-2" style="width:10%;border-top:1px solid #d6d6d6;">unit_price</b>
+                                    <span class="col-md-10" style="border-left:1px solid #d6d6d6;border-bottom:1px solid #d6d6d6">{{$r->unit_price}}</span>
                                 </div>
                                 <div  class="card card-body">
-                                    <b class="col-md-2" style="width:10%">promotion_price</b>
-                                    <span class="col-md-10">{{$r->promotion_price}}</span>
+                                    <b class="col-md-2" style="width:10%;border-top:1px solid #d6d6d6">promotion_price</b>
+                                    <span class="col-md-10" style="border-left:1px solid #d6d6d6;border-bottom:1px solid #d6d6d6">{{$r->promotion_price}}</span>
                                 </div>
                                 <div  class="card card-body">
-                                    <b class="col-md-2" style="width:10%">image</b>
-                                    <span class="col-md-10">{{$r->image}} <img src="{{ asset($r->image) }}" alt="loading ..." height="50px"></span>
+                                    <b class="col-md-2" style="width:10%;border-top:1px solid #d6d6d6">image</b>
+                                    <span class="col-md-10" style="border-left:1px solid #d6d6d6;border-bottom:1px solid #d6d6d6">{{$r->image}} <img src="{{ asset($r->image) }}" alt="loading ..." height="50px"></span>
                                 </div>
                                 <div class="card card-body">
-                                    <b class="col-md-2" style="width:10%">unit</b>
-                                    <span class="col-md-10">{{$r->unit}}</span>
+                                    <b class="col-md-2" style="width:10%;border-top:1px solid #d6d6d6">unit</b>
+                                    <span class="col-md-10" style="border-left:1px solid #d6d6d6;border-bottom:1px solid #d6d6d6">{{$r->unit}}</span>
                                 </div>
                                 <div class="card card-body">
-                                    <b class="col-md-2" style="width:10%">new</b>
-                                    <span class="col-md-10">{{$r->new}}</span>
+                                    <b class="col-md-2" style="width:10%;border-top:1px solid #d6d6d6">new</b>
+                                    <span class="col-md-10" style="border-left:1px solid #d6d6d6;border-bottom:1px solid #d6d6d6">{{$r->new}}</span>
                                 </div>
 
                                 <br>
 
                                 <div class="card card-body">
-                                    <b class="col-md-2" style="width:10%">created_at</b>
-                                    <span class="col-md-10">{{$r->created_at}}</span>
+                                    <b class="col-md-2" style="width:10%;border-top:1px solid #d6d6d6">created_at</b>
+                                    <span class="col-md-10" style="border-left:1px solid #d6d6d6;border-bottom:1px solid #d6d6d6">{{$r->created_at}}</span>
                                 </div>
                                 <div class="card card-body">
-                                    <b class="col-md-2" style="width:10%">updated_at</b>
-                                    <span class="col-md-10">{{$r->updated_at}}</span>
+                                    <b class="col-md-2" style="width:10%;border-top:1px solid #d6d6d6">updated_at</b>
+                                    <span class="col-md-10"  style="border-left:1px solid #d6d6d6;border-bottom:1px solid #d6d6d6">{{$r->updated_at}}</span>
                                 </div>
                             </div>
                     @endforeach

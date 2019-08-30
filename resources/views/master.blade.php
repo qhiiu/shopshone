@@ -82,6 +82,34 @@
             border-bottom-width: 0px;
             border-top-width: 0px;  
         }
+        .color-div {
+            background: #A9F6FD!important;
+        }
+        .cart-item .media {
+            margin-top: 0;
+            line-height: 80%;
+            padding-right: 0px;
+        }
+        .cart-item-delete {
+            position: absolute;
+            top: 20px;
+            right: 0;
+            background: white;
+            font-size: 10px;
+            width: 15px;
+            height: 15px;
+            text-align: center;
+            line-height: 15px;
+        }
+        a i {
+            color: #f00;
+            font-size: 15px;
+            padding-left: 0px;
+            padding-right: 0;
+        }
+        .color-orange {
+            color: orange;
+        }
     </style>
 </head>
 <body style="font-family: -webkit-pictograph;">

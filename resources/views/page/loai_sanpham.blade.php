@@ -70,7 +70,7 @@
                     <div class="space50">&nbsp;</div>
 
                     <div class="beta-products-list">
-                        <h1  style="  color: rgba(255, 0, 210, 0.97);text-align: center;font-family: -webkit-pictograph;">Sản phẩm của shop</h1>
+                        <h1  style="  color: rgba(255, 0, 210, 0.97);text-align: center;font-family: -webkit-pictograph;">Sản phẩm liên quan</h1>
                         <div class="beta-products-details">
                             <div class="clearfix"></div>
                         </div>

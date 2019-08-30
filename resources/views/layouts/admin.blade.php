@@ -29,18 +29,6 @@
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
                 {{-- ---------------------------------------------------------------------------------------- --}}
                 <style>
-                .product_column1{
-                    display: inline-block;
-                    width: 120px;
-                    font-weight: 700;
-                    line-height: 10px;
-                }
-                .product_column2{
-                    display: inline-block;
-                }
-                .product_column1 , .product_column2{
-                    font-size: 15px;
-                }
                 .delete_form{
                     display: inline-block;
                 }

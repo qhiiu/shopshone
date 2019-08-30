@@ -78,13 +78,13 @@
                                         @foreach($product_cart as $cart)
 									<!--  one item	 -->
 										<div class="media">
-                                        <img width="25%" src="source/image/dienthoai/{{$cart['item']['image']}}" alt="" class="pull-left">
-											<div class="media-body" style="font-size: x-large;">
+                                        <img width="25%" src="{{$cart['item']['image']}}" alt="" class="pull-left">
+											<div class="media-body" style="font-size: 20px;">
                                                 <div class="">{{$cart['item']['name']}}</div>
                                                 <div class="space20">&nbsp;</div>
-												<div class="color-gray your-order-info">Đơn giá:{{number_format($cart['price'])}}VND</div>
+												<div class="color-orange your-order-info">Đơn giá:{{number_format($cart['price'])}}VND</div>
                                                 <div class="space20">&nbsp;</div>
-                                                <div class="color-gray your-order-info">Số lượng: {{$cart['qty']}}</div>
+                                                <div class="color-orange your-order-info">Số lượng: {{$cart['qty']}}</div>
 											</div>
 										</div>
                                     <!-- end one item -->
@@ -95,7 +95,7 @@
 								</div>
 								<div class="your-order-item">
 									<div class="pull-left" ><p class="your-order-f18"  style="font-size: x-large;">Tổng tiền:</p></div>
-                                <div class="pull-right"><h5 class="color-black"> @if(Session::has('cart')){{number_format($totalPrice)}}VND @else 0 VND @endif</h5></div>
+                                <div class="pull-right"><h5 class="color-orange"> @if(Session::has('cart')){{number_format($totalPrice)}}VND @else 0 VND @endif</h5></div>
 									<div class="clearfix"></div>
 								</div>
 							</div>
@@ -132,4 +132,5 @@
 			</form>
 		</div> <!-- #content -->
     </div> <!-- .container -->
+    <div class="space100">&nbsp;</div>
     @endsection

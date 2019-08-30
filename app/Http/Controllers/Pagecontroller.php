@@ -26,7 +26,7 @@ class Pagecontroller extends Controller
     }
     public function getLoaiSp($type){
         $sp_theoloai = Product::where('id_type',$type)->paginate(9);
-        $sp_khac= Product::where('id_type','<>',$type)->paginate(6);
+        $sp_khac= Product::where('id_type','<>',$type)->orderBy('id','desc')->paginate(6);
         $loai =ProductType::all();
         $loai_sp=ProductType::where ('id',$type)->first();
         $new_product = Product::where('new',1)->skip(0)->take(7)->get();// sản phẩm mới

@@ -23,8 +23,8 @@
                                     <div class="cart-item">
                                     <a class="cart-item-delete" href="{{route('xoagiohang',$product['item']['id'])}}"><i class="fa fa-times"></i></a>
                                         <div class="media">
-                                            <a class="pull-left" href="{{route('chitietsanpham',$product['item']['id'])}}"><img src="source/image/dienthoai/{{$product['item']['image']}}" alt=""></a>
-                                            <div class="media-body">
+                                            <a class="pull-left" href="{{route('chitietsanpham',$product['item']['id'])}}"><img src="{{$product['item']['image']}}" alt=""></a>
+                                            <div class="media-body" style="font-size:15px;padding-right: 18px;">
                                                 <span class="cart-item-title">{{$product['item']['name']}}</span>
                                                 <span class="cart-item-amount">{{$product['qty']}}*<span>@if($product['item']['promotion_price']==0){{number_format($product['item']['unit_price'])}} @else{{number_format($product['item']['promotion_price'])}}@endif</span></span>
                                             </div>
