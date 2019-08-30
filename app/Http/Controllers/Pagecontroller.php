@@ -8,6 +8,7 @@ use App\ProductType;
 use App\Cart;
 use App\Customer;
 use App\Bill;
+use App\Bill_detail;
 use App\News;
 use Session;
 
@@ -88,35 +89,43 @@ class Pagecontroller extends Controller
      }
 
     public function getpostCheckout( Request $req){
+
         $cart=Session::get('cart');
 
         if($cart == null ){
             return redirect()->back()->with('gioHangTrong','Giỏ hàng trống ! Xin mời mua thêm sản phẩm');
-        } else {
-
+        }
+        
         $customer=new Customer;
-        $customer ->name=$req->name;
-        $customer ->gender=$req->gender;
-        $customer ->email=$req->email;
-        $customer ->address=$req->address;
-        $customer ->phone_number=$req->phone;
-        $customer ->note=$req->notes;
-        $customer->save();
-        $bill=new Bill;
+            if(\Auth::user() !== null ){
+                $customer->id_user = \Auth::user()->id;
+            }
+            $customer->name = $req->name;
+            $customer->email = $req->email;
+            $customer->address = $req->address;
+            $customer->phone = $req->phone;
+            $customer->note = $req->note;
+            $customer->save();
 
-        $bill->id_customer=$customer->id_customer;
-        $bill->date_order=date('Y-m-d');
-       $bill->total=$cart->totalPrice;
-       $bill->payment=$req->payment_method;
-       $bill ->note=$req->notes;
-       $bill->id_product=$customer->id_product;
-       $bill->quantity=$customer->quantity;
-       $bill->unit_price=$customer->unit_price;
-       $bill->save();
-       Session::forget('cart');
-       return redirect()->back()->with('thongbao','Đặt hàng thành công');
+        $bill = new Bill;
+            $bill->id_customer = $customer->id;
+            $bill->date_order = date('Y-m-d');
+            $bill->total = $cart->totalPrice;
+            $bill->payment = $req->payment_method;
+            $bill->note = $req->note;
+            $bill->save();
+
+        foreach ($cart->items as $key => $value) {
+            $bill_details = new Bill_detail;
+            $bill_details->id_bill = $bill->id;
+            $bill_details->id_product = $key;
+            $bill_details->quantity = $value['qty'];
+            $bill_details->unit_price = $value['price'] / $value['qty'];
+            $bill_details->save();
         }
 
+        Session::forget('cart');
+        return redirect()->back()->with('thongbao','Đặt hàng thành công');
    }
 
    public function tintuc($id){

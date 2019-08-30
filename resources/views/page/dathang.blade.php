@@ -35,37 +35,25 @@
         {{-- {!! csrf_field() !!} --}}
 				<div class="row">
 					<div class="col-sm-6">
-
 						<div class="form-block"style="margin-top:0px; margin-bottom:30px; " >
-							<label for="name" style="color:#DF3A01; font-size:20px; ">Họ và tên</label>
+							<label for="name" style="color:#DF3A01; font-size:20px; ">Họ và tên *</label>
 							<input type="text" id="name" name="name" placeholder="Mời bạn nhập họ và tên" required style=" border: 1px solid #01DF01;">
 						</div>
-						<div class="form-block" style="margin-top:30px; margin-bottom:30px; ">
-							<label style="color:#DF3A01; font-size:20px;">Giới tính </label>
-							<input id="gender" type="radio" class="input-radio" name="gender" value="nam" checked="checked" style="width: 10%" style=" border: 1px solid red;"><span style="margin-right: 10%">Nam</span>
-							<input id="gender" type="radio" class="input-radio" name="gender" value="nữ" style="width: 10%" style=" border: 1px solid #01DF01;"><span>Nữ</span>
-
-						</div>
-
 						<div class="form-block" style="margin-top:30px;">
 							<label for="email" style="color:#DF3A01; font-size:20px;">Email</label>
 							<input type="email" id="email" name="email" required placeholder="Mời bạn nhập email" style=" border: 1px solid #01DF01;">
 						</div>
-
 						<div class="form-block" style="margin-top:30px; ">
-							<label for="adress" style="color:#DF3A01; font-size:20px;">Địa chỉ</label>
-							<input type="text" id="address"name="address"placeholder="Mời bạn nhập địa chỉ của mình" required style=" border: 1px solid #01DF01;">
+							<label for="adress" style="color:#DF3A01; font-size:20px;">Địa chỉ nhận hàng</label>
+							<input type="text" id="address"name="address"placeholder="Mời bạn nhập địa chỉ nhận hàng của mình" required style=" border: 1px solid #01DF01;">
 						</div>
-
-
 						<div class="form-block" style="margin-top:30px;" >
 							<label for="phone" style="color:#DF3A01; font-size:20px;">Điện thoại*</label>
 							<input type="text" id="phone"name="phone" placeholder="Mời bạn nhập số điện thoại của mình" required style=" border: 1px solid #01DF01;">
 						</div>
-
 						<div class="form-block" style="margin-top:30px;">
-							<label for="notes" style="color:#DF3A01; font-size:20px;">Ghi chú</label>
-							<textarea id="notes" name="notes" placeholder="Mời bạn thêm ghi chú nếu có" style=" border: 1px solid #01DF01;"></textarea>
+							<label for="note" style="color:#DF3A01; font-size:20px;">Ghi chú</label>
+							<textarea id="note" name="note" placeholder="Thêm ghi chú " style=" border: 1px solid #01DF01;"></textarea>
 						</div>
 					</div>
 					<div class="col-sm-6">
@@ -75,20 +63,20 @@
 								<div class="your-order-item">
 									<div>
                                         @if(Session::has('cart'))
-                                        @foreach($product_cart as $cart)
-									<!--  one item	 -->
-										<div class="media">
-                                        <img width="25%" src="{{$cart['item']['image']}}" alt="" class="pull-left">
-											<div class="media-body" style="font-size: 20px;">
-                                                <div class="">{{$cart['item']['name']}}</div>
-                                                <div class="space20">&nbsp;</div>
-												<div class="color-orange your-order-info">Đơn giá:{{number_format($cart['price'])}}VND</div>
-                                                <div class="space20">&nbsp;</div>
-                                                <div class="color-orange your-order-info">Số lượng: {{$cart['qty']}}</div>
-											</div>
-										</div>
-                                    <!-- end one item -->
-                                    @endforeach
+                                            @foreach($product_cart as $cart)
+                                        <!--  one item	 -->
+                                                <div class="media">
+                                                <img width="25%" src="{{$cart['item']['image']}}" alt="" class="pull-left">
+                                                    <div class="media-body" style="font-size: 20px;">
+                                                    <div class="">{{$cart['item']['name']}}</div>
+                                                    <div class="space20">&nbsp;</div>
+                                                    <div class="color-orange your-order-info">Đơn giá:{{number_format($cart['price'])}}VND</div>
+                                                    <div class="space20">&nbsp;</div>
+                                                    <div class="color-orange your-order-info">Số lượng: {{$cart['qty']}}</div>
+                                                </div>
+                                            </div>
+                                        <!-- end one item -->
+                                        @endforeach
                                     @endif
 									</div>
 									<div class="clearfix"></div>

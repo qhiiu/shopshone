@@ -83,7 +83,7 @@ Route::group(['prefix' => 'admin'], function () {
         return redirect()->route('login');
     })->name('deleteCookie_checkAdmin');
 });
-
+Route::get('/uploadfile', "UploadfileController@index");
 
 
 //facebook -------------
@@ -94,8 +94,3 @@ Route::get('login/google', 'Auth\LoginController@g_redirectToProvider')->name('l
 Route::get('login/google/callback', 'Auth\LoginController@g_handleProviderCallback')->name('login.google.callback');
 //---------------------
 
-
-
-
-
-Route::get('/uploadfile', "UploadfileController@index");

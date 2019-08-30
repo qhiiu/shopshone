@@ -25,9 +25,6 @@
           <th>created_at</th>
           <th>updated_at</th>
 
-          <th>id_product</th>
-          <th>quantity</th>
-          <th>unit_price</th>
         </tr>
 
         @foreach ($list as $r)
@@ -41,13 +38,6 @@
 
           <td>{{$r->created_at}}</td>
           <td>{{$r->updated_at}}</td>
-
-          <td>{{$r->id_product}}</td>
-          <td>{{$r->quantity}}</td>
-          <td>{{$r->unit_price}}</td>
-
-
-
           <td>
                 <form class="delete_form" action="{{ action('BillsController@destroy',$r->id) }} " method="POST">
                         @csrf
