@@ -62,17 +62,17 @@
 							<div class="your-order-body" style="padding: 0px 10px">
 								<div class="your-order-item">
 									<div>
-                                        @if(Session::has('cart'))
-                                            @foreach($product_cart as $cart)
+										@if(Session::has('cart'))  
+											@foreach($product_cart as $cart)
                                         <!--  one item	 -->
-                                                <div class="media">
-                                                <img width="25%" src="{{$cart['item']['image']}}" alt="" class="pull-left">
-                                                    <div class="media-body" style="font-size: 20px;">
-                                                    <div class="">{{$cart['item']['name']}}</div>
+                                            <div class="media">
+												<a href="{{ route('chitietsanpham',$cart['item']['id']) }}"><img width="20%" src="{{$cart['item']['image']}}" alt="" class="pull-left"></a>
+												<div class="media-body" style="font-size: 20px;padding:10px">
+													<div class=""><a href="{{ route('chitietsanpham',$cart['item']['id']) }}">{{ $cart['item']['name'] }}</a></div>
                                                     <div class="space20">&nbsp;</div>
-                                                    <div class="color-orange your-order-info">Đơn giá:{{number_format($cart['price'])}}VND</div>
+                                                    <div class="color-orange your-order-info">Đơn giá : {{number_format($cart['price'])}}VND</div>
                                                     <div class="space20">&nbsp;</div>
-                                                    <div class="color-orange your-order-info">Số lượng: {{$cart['qty']}}</div>
+                                                    <div class="color-orange your-order-info">Số lượng : {{$cart['qty']}}</div>
                                                 </div>
                                             </div>
                                         <!-- end one item -->

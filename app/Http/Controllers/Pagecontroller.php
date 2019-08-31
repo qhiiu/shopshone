@@ -20,7 +20,7 @@ class Pagecontroller extends Controller
     public function getIndex(){
         $slide = Slides::all();//Slides là tên lớp trong model slide
         $news = News::orderBy('id', 'desc')->skip(0)->take(7)->get();
-        $new_product = Product::where('new',1)->paginate(9);//phaan trang
+        $new_product = Product::where('new',1)->where('id_type','1')->orderBy('id','desc')->paginate(9);
         $sanpham_khuyenmai= Product::where('promotion_price','<>',0)->paginate(6);
         $phukien = Product::where('id_type',2)->skip(0)->take('5')->get();
         return view('page/trangchu',compact('slide','new_product','sanpham_khuyenmai','news','phukien'));
@@ -46,10 +46,10 @@ class Pagecontroller extends Controller
         return view('page.gioithieu');
      }
      public function getAddtoCart(Request $req, $id){
-         $product=Product::find($id);                           //tìm xem sản phẩm có id hay không
+         $product=Product::find($id);                          
          $oldCart = Session('cart')?Session::get('cart'):null;  //ktra xem session có sp chưa
          $cart = new Cart($oldCart);                            //tạo gio mới
-        $cart -> add ($product , $id);                          //add vào giỏ cũ nữa
+        $cart -> add($product,$id);                          //add vào giỏ cũ nữa
         $req->session()->put('cart',$cart);
 
         return redirect()->back();
@@ -97,9 +97,7 @@ class Pagecontroller extends Controller
         }
         
         $customer=new Customer;
-            // if(\Auth::user() !== null ){
-            //     $customer->id_user = \Auth::user()->id;
-            // }
+
             $customer->name = $req->name;
             $customer->email = $req->email;
             $customer->address = $req->address;

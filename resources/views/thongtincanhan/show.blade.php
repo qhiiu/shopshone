@@ -6,7 +6,7 @@
                            
                         <div style="font-size:50px;">Thông tin cá nhân 
                             <span>
-                                    <a class="btn btn-primary" href="{{ route('thongtincanhan._edit') }}">Cập nhật thông tin</a>
+                                    <a class="btn btn-primary" href="{{ route('thongtincanhan._edit') }}" style="font-size: 20px;">Cập nhật thông tin</a>
                             </span>
                         </div>
                         <div class="space40">&nbsp;</div>

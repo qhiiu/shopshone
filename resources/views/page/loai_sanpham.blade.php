@@ -44,7 +44,7 @@
                                             </div>
 
                                     <div class="single-item-body">
-                                        <p class="single-item-title"  style="font-size: 21px">{{$sp->name}}</p>
+                                        <p class="single-item-title"  style="font-size: 19px">{{$sp->name}}</p>
                                         <p class="single-item-price" style="margin-bottom: 5px">
                                             @if($sp->promotion_price > 0)
                                                 <span class="flash-del"  style="    font-size: 15px;">{{$sp->unit_price}} VND</span><br>
@@ -85,7 +85,7 @@
                                             <a href="{{ route('chitietsanpham',$spk->id) }}"><img src="{{$spk->image}}" alt=""  style="height: 250px;"></a>
                                         </div>
                                         <div class="single-item-body">
-                                            <p class="single-item-title"  style="font-size: 21px">{{$spk->name}}</p>
+                                            <p class="single-item-title"  style="font-size: 19">{{$spk->name}}</p>
                                             <p class="single-item-price" style="margin-bottom: 5px">
                                                 @if($spk->promotion_price > 0)
                                                     <span class="flash-del" style="    font-size: 15px;">{{$spk->unit_price}} VND</span><br>
@@ -109,7 +109,7 @@
                         <div class="space40">&nbsp;</div>
                     </div> 
                 </div>
-                <div class="col-md-2 aside" style="width:20%">
+                <div class="col-sm-2 aside" style="width:20%">
                             <!-- ------ Sản phẩm mới nhất ----------------------------------------------------------------- -->
                         <div class="widget">
                             <h3 class="widget-title">Sản phẩm mới</h3>
@@ -117,10 +117,10 @@
                                 <div class="beta-sales beta-lists">
                                     @foreach ($new_product as $new)
                                         <div class="media beta-sales-item row">
-                                            <div class="col-md-4">
+                                            <div class="col-sm-4">
                                                 <a class="st" href="{{route('chitietsanpham',$new->id)}}"><img src="{{$new->image}}" alt="loading ... " style="height: 60px;"></a>
                                             </div>
-                                            <div class="col-md-7">
+                                            <div class="col-sm-7">
                                                 <div class="media-body">
                                                     <div  class="beta-sales-price"><a href="{{ route('chitietsanpham',$new->id) }}">{{ $new->name }}</a></div>
                                                     @if($new->promotion_price == 0)

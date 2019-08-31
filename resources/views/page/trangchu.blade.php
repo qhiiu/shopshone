@@ -26,8 +26,8 @@
 <div class="container-fluid ">
     <div class="space60">&nbsp;</div>
     <div class="row">
-        <div class="col-md-2" style="width:11%">  </div>
-        <div class="col-md-7">
+        <div class="col-sm-2" style="width:11%">  </div>
+        <div class="col-sm-7">
                 <div id="content" class="space-top-none">
                         <div class="main-content">
                         <div class="row">
@@ -52,7 +52,7 @@
                                                         <a href="{{route('chitietsanpham',$new->id)}}"><img src="{{$new->image}}" alt="loading ... " style="height: 280px;"></a>
                                                     </div>
                                                     <div class="single-item-body">
-                                                        <p class="single-item-title"  style="font-size: 21px">{{ $new->name }} </p>
+                                                        <p class="single-item-title"  style="font-size: 19px">{{ $new->name }} </p>
                                                         <p class="single-item-price" style="margin-bottom: 5px;">
                                                             @if($new->promotion_price == 0)
                                                                 <span class ="flash-del" style="    font-size: 15px;"></span><br>
@@ -92,7 +92,7 @@
                                                     <a href="{{route('chitietsanpham',$spkm->id)}}" ><img src="{{ $spkm->image}}" alt="loading ... "  style="height: 280px;"></a>
                                                 </div>
                                                 <div class="single-item-body">
-                                                <p class="single-item-title" style="font-size: 21px">{{$spkm->name}}</p>
+                                                <p class="single-item-title" style="font-size: 19px">{{$spkm->name}}</p>
                                                     <p class="single-item-price" style="margin-bottom:5px">
                                                         <span class="flash-del"  style="    font-size: 15px;">{{number_format($spkm->unit_price)}}VND</span><br>
                                                         <span class="flash-sale" style="    font-size: 22px;">{{number_format($spkm->promotion_price)}}VND</span>
@@ -117,7 +117,7 @@
                         </div> <!-- .main-content -->
                         </div> <!-- #content -->
         </div>
-        <div class="col-md-3 aside" style="width: 26%">
+        <div class="col-sm-3 aside" style="width: 26%">
                 <!-- ------ Sản phẩm mới nhất ----------------------------------------------------------------- -->
             <div class="row">
                     <div class="widget">
@@ -126,10 +126,10 @@
                             <div class="beta-sales beta-lists">
                                 @foreach ($news as $news)
                                     <div class="media beta-sales-item row">
-                                        <div class="col-md-3" style="padding-left: 10px;">
+                                        <div class="col-sm-3" style="padding-left: 10px;">
                                             <a href="{{route('tintuc',$news->id)}}"><img src="{{$news->image}}" alt=" loading ... " style="height: 60px;"></a>
                                         </div>
-                                        <div class="col-md-8" style="padding-left: 0;">
+                                        <div class="col-sm-8" style="padding-left: 0;">
                                             <div class="media-body">
                                                 <span class="beta-sales-price" style="font-size:19px">
                                                     <a href="{{route('tintuc',$news->id)}}">{{ $news->title }} </a>
@@ -150,10 +150,10 @@
                             <div class="beta-sales beta-lists">
                                 @foreach ($phukien as $phukien)
                                     <div class="media beta-sales-item row">
-                                        <div class="col-md-3">
+                                        <div class="col-sm-3">
                                             <a href="{{route('chitietsanpham',$phukien->id)}}"><img src="{{$phukien->image}}" alt="loading ..." style="height: 60px;"></a>
                                         </div>
-                                        <div class="col-md-8">
+                                        <div class="col-sm-8">
                                             <div class="media-body">
                                                 <div  class="beta-sales-price"><a href="{{ route('chitietsanpham',$phukien->id) }}">{{ $phukien->name }}</a></div>
                                                 @if($phukien->promotion_price == 0)

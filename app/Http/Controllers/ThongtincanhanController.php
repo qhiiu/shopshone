@@ -43,7 +43,7 @@ class ThongtincanhanController extends Controller
 
     public function list_bills(){
       //get id_bill
-      $id_bill = DB::table('bill_details')->where('id_user',\Auth::user()->id)->distinct()->get('id_bill'); 
+      $id_bill = DB::table('bill_details')->where('id_user',\Auth::user()->id)->distinct()->orderBy('id_bill','desc')->get('id_bill'); 
 
       return view('thongtincanhan.list_bills',compact('id_bill'));
     }

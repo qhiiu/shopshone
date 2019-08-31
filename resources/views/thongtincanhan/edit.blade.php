@@ -67,7 +67,7 @@
             <div class="row"  style=" margin-top: 10px">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-7">
-                    <button type="submit" class="btn btn-primary">Cập nhật</button>
+                    <button type="submit" class="btn btn-primary" style="font-size: 20px;">Cập nhật</button>
                 </div>
             </div>
         </form>

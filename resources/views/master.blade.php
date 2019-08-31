@@ -47,7 +47,7 @@
         }
         .navbar-nav>li {
             float: left;
-            padding: 5px 20px;
+            padding: 2px 20px;
         }
         .navbar-brand {
             padding: 20px;

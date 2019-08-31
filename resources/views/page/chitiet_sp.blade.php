@@ -3,10 +3,11 @@
 
 
 
-<div class="container">
+<div class="container-fluid">
     <div id="content">
         <div class="row">
-            <div class="col-sm-9">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-6">
                 <h1 class="inner-title"  style="    font-family: -webkit-pictograph;">Sản phẩm {{$sanpham->name}}</h1>
                 <div class="space50">&nbsp;</div>
                 <div class="row">
@@ -107,10 +108,10 @@
                             @foreach ($new_product as $new)
 
                                 <div class="media beta-sales-item row">
-                                    <div class="col-md-5">
+                                    <div class="col-sm-3">
                                         <a href="{{route('chitietsanpham',$new->id)}}"><img src="{{$new->image}}" alt="" style="height: 60px;"></a>
                                     </div>
-                                    <div class="col-md-7">
+                                    <div class="col-sm-9">
                                         <div class="media-body">
                                             <div  class="beta-sales-price"><a href="{{ route('chitietsanpham',$new->id) }}">{{ $new->name }}</a></div>
                                             @if($new->promotion_price == 0)
@@ -120,8 +121,6 @@
                                                 <span class ="flash-del" >{{number_format($new->unit_price)}} VND </span><br>
                                                 Giá : <span class ="flash-sale" >{{number_format($new->promotion_price)}} VND</span>
                                             @endif
-
-
                                         </div>
                                     </div>
 
