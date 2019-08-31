@@ -16,7 +16,6 @@
         <tbody>
         <tr>
           <th>id</th>
-          <th>id_user</th>
           <th>name</th>
           <th>email</th>
           <th>address</th>
@@ -30,7 +29,6 @@
         @foreach ($list as $r)
         <tr>
           <td>{{$r->id}}</td>
-          <td>{{$r->id_user}}</td>
           <td>{{$r->name}}</td>
           <td>{{ $r->email }}</td>
           <td>{{$r->address}}</td>

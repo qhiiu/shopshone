@@ -7,6 +7,8 @@
                 @csrf
                 <input type="hidden" name="_method" value="PATCH">
 
+            <div style="font-size:50px;">Cập nhật thông tin !</div>
+            <div class="space50">&nbsp;</div>
             <div class="row"  style=" font-size: larger;">
                 <div class="col-sm-3">Họ tên</div>
                 <div class="col-sm-7">

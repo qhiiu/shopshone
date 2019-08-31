@@ -17,6 +17,7 @@
     <link rel="stylesheet" title="style" href="source/assets/dest/css/huong-style.css">
 
     <style>
+
         .ribbon { z-index: 1;}
 
         .cart {
@@ -109,6 +110,11 @@
         }
         .color-orange {
             color: orange;
+        }
+
+        .row{
+            margin-left: 0;
+            margin-right: 0;
         }
     </style>
 </head>

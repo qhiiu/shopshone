@@ -97,9 +97,9 @@ class Pagecontroller extends Controller
         }
         
         $customer=new Customer;
-            if(\Auth::user() !== null ){
-                $customer->id_user = \Auth::user()->id;
-            }
+            // if(\Auth::user() !== null ){
+            //     $customer->id_user = \Auth::user()->id;
+            // }
             $customer->name = $req->name;
             $customer->email = $req->email;
             $customer->address = $req->address;
@@ -121,6 +121,9 @@ class Pagecontroller extends Controller
             $bill_details->id_product = $key;
             $bill_details->quantity = $value['qty'];
             $bill_details->unit_price = $value['price'] / $value['qty'];
+            if(\Auth::user() !== null ){
+                $bill_details->id_user = \Auth::user()->id;
+            }
             $bill_details->save();
         }
 

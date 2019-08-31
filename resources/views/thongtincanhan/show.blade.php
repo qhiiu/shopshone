@@ -3,6 +3,13 @@
         @extends('thongtincanhan.master')
         @section('contentInfo')
                 <div style="display:block;height:250px;    font-size: larger;">
+                           
+                        <div style="font-size:50px;">Thông tin cá nhân 
+                            <span>
+                                    <a class="btn btn-primary" href="{{ route('thongtincanhan._edit') }}">Cập nhật thông tin</a>
+                            </span>
+                        </div>
+                        <div class="space40">&nbsp;</div>
                         <div class="row"  style=" font-size: larger;">
                             <div class="col-sm-3">Họ tên</div>
                             <div class="col-sm-7">
@@ -47,12 +54,6 @@
                             <div class="col-sm-3">Ngày sinh</div>
                             <div class="col-sm-7">
                                 <input type="date"  class="form-control " name="dob" value="{{ Auth::user()->dob }}" readonly  style="    font-size: large;">
-                            </div>
-                        </div>
-                        <div class="row"  style=" margin-top: 10px">
-                            <div class="col-sm-3"></div>
-                            <div class="col-sm-7">
-                                <a class="btn btn-primary" href="{{ route('thongtincanhan._edit') }}">Cập nhật thông tin</a>
                             </div>
                         </div>
                     </div>

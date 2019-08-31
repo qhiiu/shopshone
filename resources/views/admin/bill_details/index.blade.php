@@ -22,6 +22,8 @@
 
           <th>created_at</th>
           <th>updated_at</th>
+
+          <th>id_user</th>
         </tr>
 
         @foreach ($list as $r)
@@ -34,6 +36,8 @@
 
           <td>{{$r->created_at}}</td>
           <td>{{$r->updated_at}}</td>
+
+          <td>{{$r->id_user}}</td>
           <td>
             <a class="btn btn-info" href="{{ action('Bill_detailsController@edit',$r->id) }}">Edit</a>
             </td> 

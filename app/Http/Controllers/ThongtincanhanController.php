@@ -1,5 +1,7 @@
 <?php
 namespace App\Http\Controllers;
+
+use App\Bill_detail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\User;
@@ -38,4 +40,11 @@ class ThongtincanhanController extends Controller
     //     ;
     //     return redirect(url()->previous())->with('success','Delete success');
     // }
+
+    public function list_bills(){
+      //get id_bill
+      $id_bill = DB::table('bill_details')->where('id_user',\Auth::user()->id)->distinct()->get('id_bill'); 
+
+      return view('thongtincanhan.list_bills',compact('id_bill'));
+    }
 }

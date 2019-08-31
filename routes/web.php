@@ -63,9 +63,10 @@ Route::get('del-cart/{id}',[
  Auth::routes();
  Route::get('/home', 'HomeController@index')->name('home');
  Route::get('thongtincanhan/_edit', 'ThongtincanhanController@_edit')->name('thongtincanhan._edit');
+ Route::get('list_bills', 'ThongtincanhanController@list_bills')->name('list_bills');
  Route::resource('thongtincanhan', 'ThongtincanhanController');
 
- Route::fallback(function () {  return redirect()->route('trangchu'); });
+//  Route::fallback(function () {  return redirect()->route('trangchu'); });
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', 'UsersController@index');

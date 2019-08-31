@@ -86,7 +86,7 @@
                     <ul class="dropdown-menu"  style="font-size: 22px;">
                             <li><a href="{{route('thongtincanhan.index')}}">Thông tin cá nhân</a></li>
                             <li><a href="{{route('thongtincanhan._edit')}}">Cập nhật thông tin</a></li>
-                            <li><a href="{{route('thongtincanhan.index')}}">Danh sách đơn hàng</a></li>
+                            <li><a href="{{route('list_bills')}}">Danh sách đơn hàng</a></li>
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
