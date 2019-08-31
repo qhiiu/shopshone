@@ -24,7 +24,6 @@
 
           <th>created_at</th>
           <th>updated_at</th>
-
         </tr>
 
         @foreach ($list as $r)
@@ -39,12 +38,12 @@
           <td>{{$r->created_at}}</td>
           <td>{{$r->updated_at}}</td>
           <td>
-                <form class="delete_form" action="{{ action('BillsController@destroy',$r->id) }} " method="POST">
-                        @csrf
-                        <input type="hidden" name="_method" value="DELETE">
-                        <button type="submit" class="btn btn-danger ">Delete</button>
-                </form>
-        </td>
+            <form class="delete_form" action="{{ action('BillsController@destroy',$r->id) }} " method="POST">
+              @csrf
+              <input type="hidden" name="_method" value="DELETE">
+              <button type="submit" class="btn btn-danger ">Delete</button>
+            </form>
+          </td>
           {{-- <td>
             {{-- if want edit , you can open followed line --}}
             {{-- <a  class="btn btn-info" href="{{ url('admin/bills/edit') }}">Edit</a> --}}

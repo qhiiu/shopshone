@@ -70,6 +70,7 @@ Route::get('del-cart/{id}',[
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', 'UsersController@index');
     Route::resource('/bills', 'BillsController');
+    Route::resource('/bill_details', 'Bill_detailsController');
     Route::resource('/products', 'ProductsController');
     Route::resource('/productsType', 'ProductsTypeController');
     Route::resource('/slides', 'SlidesController');

@@ -2,15 +2,14 @@
 
         @extends('thongtincanhan.master')
         @section('contentInfo')
-
                 <div style="display:block;height:250px;    font-size: larger;">
-
                         <div class="row"  style=" font-size: larger;">
                             <div class="col-sm-3">Họ tên</div>
                             <div class="col-sm-7">
                                 <input type="text"  class="form-control " name="name" value="{{ Auth::user()->name }}" readonly style="    font-size: large;">
                             </div>
-                        </div>
+                        </div>                
+
                         <div class="row"  style=" margin-top: 10px; font-size: larger;">
                             <div class="col-sm-3">Email  </div>
                             <div class="col-sm-7">

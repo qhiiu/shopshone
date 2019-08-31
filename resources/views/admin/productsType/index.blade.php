@@ -7,7 +7,7 @@
     @include('admin.notification')
     <br>
 
-    <p><a href="{{ url('admin/productsType/create') }}"  class="btn btn-primary">Add new</a></p>
+    <p><a href="{{ url('admin/productsType/create') }}"  class="btn btn-success">Add new</a></p>
 
 </div>
 <div class="box">

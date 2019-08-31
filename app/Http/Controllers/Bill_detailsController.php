@@ -1,9 +1,12 @@
 <?php
 namespace App\Http\Controllers;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Customer;
 use Illuminate\Support\Facades\DB;
-class CustomerController extends Controller
+use App\Bill;
+use App\Bill_detail;
+
+class Bill_detailsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -12,9 +15,10 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $list = Customer::paginate(10);
-        return view('admin.customer.index', ['list' => $list]);
+        $list = Bill_detail::paginate(10);
+        return view('admin.bill_details.index', ['list' => $list]);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -22,8 +26,9 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('admin.customer.create');
+        echo view('admin.bill_details.create');
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -33,22 +38,22 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'name' => 'required',
-            'email' => 'required',
-            'address'=>'required',
-            'phone' => 'required',
-            'note' => ''
+            'id_bill' => 'required|numeric',
+            'id_product' => 'required|numeric',
+            'quantity' => 'required|numeric',
+            'unit_price' => 'required|numeric',
         ]);
 
-        $Customer = new Customer();
-        $Customer->name = $request->name;
-        $Customer->email = $request->email;
-        $Customer->address = $request->address;
-        $Customer->phone = $request->phone;
-        $Customer->note = $request->note;
-        $Customer->save();
-        return redirect()->route('customer.create')->with('success','insert new record success ');
+        $bill = new Bill_detail();
+            $bill->id_bill = $request->id_bill;
+            $bill->id_product = $request->id_product;
+            $bill->quantity = $request->quantity;
+            $bill->unit_price = $request->unit_price;
+            $bill->save();
+
+        return redirect()->route('bill_details.create')->with('success','insert new record success');
     }
+
     /**
      * Display the specified resource.
      *
@@ -59,6 +64,7 @@ class CustomerController extends Controller
     {
         //
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -67,10 +73,11 @@ class CustomerController extends Controller
      */
     public function edit($id)
     {
-        $Customer = Customer::find($id);
-        $list = DB::table('customers')->where('id',$id)->get();
-        echo view('admin.customer.edit',compact('id','list'));
+        $Customer = Bill_detail::find($id);
+        $list = DB::table('bill_details')->where('id',$id)->get();
+        echo view('admin.bill_details.edit',compact('id','list'));    
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -81,22 +88,21 @@ class CustomerController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'name' => 'required',
-            'email' => 'required',
-            'address'=>'required',
-            'phone' => 'required',
-            'note' => ''
+            'id_bill' => 'required',
+            'id_product' => 'required',
+            'quantity'=>'required',
+            'unit_price' => 'required',
         ]);
 
-        $Customer = Customer::find($id);
-        $Customer->name = $request->name;
-        $Customer->email = $request->email;
-        $Customer->address = $request->address;
-        $Customer->phone = $request->phone;
-        $Customer->note = $request->note;
+        $Customer = Bill_detail::find($id);
+        $Customer->id_bill = $request->id_bill;
+        $Customer->id_product = $request->id_product;
+        $Customer->quantity = $request->quantity;
+        $Customer->unit_price = $request->unit_price;
         $Customer->save();
-        return redirect()->route('customer.index')->with('success','update record success ');
+        return redirect()->route('bill_details.index')->with('success','update record success ');
     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -105,8 +111,9 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-        $Customer = Customer::find($id);
-        $Customer->delete();
+        $bill = Bill_detail::find($id);
+        $bill->delete();
+
         return redirect(url()->previous())->with('success','Delete success');
     }
 }

@@ -35,10 +35,10 @@
         <div>
             <label><b>Gender  *</b></label>
             <div class="form-check">
-                      <input type="radio" class="form-check-input" name="gender" value="nam" checked >Nam
+                      <input type="radio" class="form-check-input" name="gender" value="nam" checked >Male
               </div>
             <div class="form-check">
-                  <input type="radio" class="form-check-input" name="gender" value="nữ" >Nữ
+                  <input type="radio" class="form-check-input" name="gender" value="nữ" >Female
               </div>
         </div>
         <br>

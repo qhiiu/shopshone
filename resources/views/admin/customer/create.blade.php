@@ -24,18 +24,18 @@
         <br>
 
         <div class="form-group">
-            <label >email</label>
+            <label >email *</label>
             <input type="email" class="form-control" placeholder="email" name="email">
         </div>
 
         <div class="form-group">
-            <label >address</label>
+            <label >address *</label>
             <input type="text" class="form-control" placeholder="address" name="address">
         </div>
 
         <div class="form-group">
-            <label >phone_number</label>
-            <input type="tel" class="form-control" placeholder="phone_number" name="phone_number">
+            <label >phone *</label>
+            <input type="tel" class="form-control" placeholder="phone" name="phone">
                 {{-- pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" --}}
         </div>
 
