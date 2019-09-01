@@ -26,8 +26,8 @@
 <div class="container-fluid ">
     <div class="space60">&nbsp;</div>
     <div class="row">
-        <div class="col-sm-2" style="width:11%">  </div>
-        <div class="col-sm-7">
+        <div class="col-sm-1" >  </div>
+        <div class="col-sm-8">
                 <div id="content" class="space-top-none">
                         <div class="main-content">
                         <div class="row">
@@ -117,7 +117,7 @@
                         </div> <!-- .main-content -->
                         </div> <!-- #content -->
         </div>
-        <div class="col-sm-3 aside" style="width: 26%">
+        <div class="col-sm-3 aside" >
                 <!-- ------ Sản phẩm mới nhất ----------------------------------------------------------------- -->
             <div class="row">
                     <div class="widget">
