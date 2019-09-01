@@ -40,10 +40,10 @@
                         <div class="beta-sales beta-lists">
                             @foreach ($news as $n)
                                 <div class="media beta-sales-item row">
-                                    <div class="col-sm-5" style="padding-left: 10px;">
+                                    <div class="col-sm-3" style="padding-left: 10px;">
                                         <a href="{{route('tintuc',$n->id)}}"><img src="{{$n->image}}" alt=" loading ... " style="height: 60px;"></a>
                                     </div>
-                                    <div class="col-sm-7" style="padding-left: 0;">
+                                    <div class="col-sm-9" style="padding-left: 0;">
                                         <div class="media-body">
                                             <span class="beta-sales-price" style="font-size:15px">
                                                 <a href="{{route('tintuc',$n->id)}}">{{ $n->title }} </a>

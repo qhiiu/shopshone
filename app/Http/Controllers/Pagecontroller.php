@@ -131,7 +131,7 @@ class Pagecontroller extends Controller
 
    public function tintuc($id){
     $news_read = News::where('id',$id)->get();
-    $news = News::orderBy('id', 'desc')->paginate(8);
+    $news = News::orderBy('id', 'desc')->paginate(10);
 
     return view('page.tintuc',compact('news','news_read'));;
    }
