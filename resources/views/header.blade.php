@@ -76,6 +76,7 @@
                       @endforeach
                 </ul>
               </li>
+              <li><a href="{{ route('tintuc',11) }}">Tin Tức</a></li>
               <li><a href="{{ route('gioithieu') }}">Giới thiệu</a></li>
               <li><a href="{{ route('lienhe') }}">Liên hệ</a></li>
               <li><a href="{{ route('dathang') }}">Giỏ hàng</a></li>

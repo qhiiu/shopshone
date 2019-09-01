@@ -3,10 +3,14 @@
 <div class="container-fluid ">
         <div class="space60">&nbsp;</div>
         <div class="row">
-            <div class="col-sm-2">  </div>
-            <div class="col-sm-7">
-                <div class="col-sm-11">
+            <div class="col-sm-1">  </div>
+            <div class="col-sm-8">
+                        <div style="    font-size: 30px;   line-height: 40px;color:blue">
+                                Trang tin tức
+                        </div>
+                        <br>
                         @foreach ($news_read as $news_read)
+
                         <div style="    font-size: 40px;         line-height: 40px;">
                                 {{ $news_read->title }}
                         </div>
@@ -16,7 +20,7 @@
 
                         <div  class="text-center">
                             <figure>
-                                <img src="source/image/tintuc/{{$news_read->image}}" alt=" loading ... " style="height: 400px;">
+                                <img src="{{$news_read->image}}" alt=" loading ... " style="height: 400px;">
                                 <figcaption style="color:#999"> Hình ảnh </figcaption>
                             </figure>
                         </div>
@@ -27,23 +31,22 @@
                         </div>
                         <div class="space100">&nbsp;</div>
                     @endforeach
-                </div>
             </div>
-            <div class="col-sm-3 aside" style="width: 21%">
+            <div class="col-sm-3 aside">
                     <!-- ------ Sản phẩm mới nhất ----------------------------------------------------------------- -->
                 <div class="widget">
                     <h3 class="widget-title">Tin tức mới</h3>
                     <div class="widget-body">
                         <div class="beta-sales beta-lists">
-                            @foreach ($news as $news)
+                            @foreach ($news as $n)
                                 <div class="media beta-sales-item row">
                                     <div class="col-sm-5" style="padding-left: 10px;">
-                                        <a href="{{route('tintuc',$news->id)}}"><img src="source/image/tintuc/{{$news->image}}" alt=" loading ... " style="height: 60px;"></a>
+                                        <a href="{{route('tintuc',$n->id)}}"><img src="{{$n->image}}" alt=" loading ... " style="height: 60px;"></a>
                                     </div>
                                     <div class="col-sm-7" style="padding-left: 0;">
                                         <div class="media-body">
                                             <span class="beta-sales-price" style="font-size:15px">
-                                                <a href="{{route('tintuc',$news->id)}}">{{ $news->title }} </a>
+                                                <a href="{{route('tintuc',$n->id)}}">{{ $n->title }} </a>
                                             </span>
                                         </div>
                                     </div>
@@ -52,6 +55,8 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-12"> {{ $news->links() }}    </div>
+
                 <!-- ----------------------------------------------------------------------- -->
             </div>
         </div>

@@ -19,10 +19,10 @@ class Pagecontroller extends Controller
 {
     public function getIndex(){
         $slide = Slides::all();//Slides là tên lớp trong model slide
-        $news = News::orderBy('id', 'desc')->skip(0)->take(7)->get();
+        $news = News::orderBy('id', 'desc')->skip(0)->take(10)->get();
         $new_product = Product::where('new',1)->where('id_type','1')->orderBy('id','desc')->paginate(9);
         $sanpham_khuyenmai= Product::where('promotion_price','<>',0)->paginate(6);
-        $phukien = Product::where('id_type',2)->skip(0)->take('5')->get();
+        $phukien = Product::where('id_type',2)->orderBy('id','desc')->skip(0)->take(10)->get();
         return view('page/trangchu',compact('slide','new_product','sanpham_khuyenmai','news','phukien'));
     }
     public function getLoaiSp($type){
@@ -30,7 +30,7 @@ class Pagecontroller extends Controller
         $sp_khac= Product::where('id_type','<>',$type)->orderBy('id','desc')->paginate(6);
         $loai =ProductType::all();
         $loai_sp=ProductType::where ('id',$type)->first();
-        $new_product = Product::where('new',1)->skip(0)->take(7)->get();// sản phẩm mới
+        $new_product = Product::where('new',1)->skip(0)->take(15)->get();// sản phẩm mới
         return view('page.loai_sanpham',compact('sp_theoloai','sp_khac','loai','loai_sp','new_product'));
      }
      public function getChitiet($id){
@@ -131,7 +131,8 @@ class Pagecontroller extends Controller
 
    public function tintuc($id){
     $news_read = News::where('id',$id)->get();
-    $news = News::orderBy('id', 'desc')->skip(0)->take(6)->get();
+    $news = News::orderBy('id', 'desc')->paginate(8);
+
     return view('page.tintuc',compact('news','news_read'));;
    }
 }
