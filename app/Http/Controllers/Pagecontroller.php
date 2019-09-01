@@ -26,11 +26,11 @@ class Pagecontroller extends Controller
         return view('page/trangchu',compact('slide','new_product','sanpham_khuyenmai','news','phukien'));
     }
     public function getLoaiSp($type){
-        $sp_theoloai = Product::where('id_type',$type)->paginate(9);
+        $sp_theoloai = Product::where('id_type',$type)->orderBy('id','desc')->paginate(9);
         $sp_khac= Product::where('id_type','<>',$type)->orderBy('id','desc')->paginate(6);
         $loai =ProductType::all();
         $loai_sp=ProductType::where ('id',$type)->first();
-        $new_product = Product::where('new',1)->skip(0)->take(15)->get();// sản phẩm mới
+        $new_product = Product::where('new',1)->where('id_type',1)->orderBy('id','desc')->skip(0)->take(18)->get();// sản phẩm mới
         return view('page.loai_sanpham',compact('sp_theoloai','sp_khac','loai','loai_sp','new_product'));
      }
      public function getChitiet($id){

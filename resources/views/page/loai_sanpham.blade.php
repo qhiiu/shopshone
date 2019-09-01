@@ -7,8 +7,7 @@
         <div class="main-content">
             <div class="space60">&nbsp;</div>
             <div class="row">
-                <div class="col-sm-1" style="width: 5%;"></div>
-
+                <div class="col-sm-1" style="width: 2%;"></div>
 
                 {{-- --------------------- side bar left--------------  --}}
                 <div class="col-sm-2" style="   padding-left: 0px;   padding-right: 0px;">
@@ -28,7 +27,7 @@
 
 
 
-                <div class="col-sm-6" style=" width: 55%;">
+                <div class="col-sm-7">
                     <div class="beta-products-list">
                         <h1  style="  color: rgba(255, 0, 210, 0.97);text-align: center; font-family: -webkit-pictograph;" >{{$loai_sp->name}}</h1>
                         <div class="space15">&nbsp;</div>
@@ -112,7 +111,7 @@
                 <div class="col-sm-2 aside" style="width:20%">
                             <!-- ------ Sản phẩm mới nhất ----------------------------------------------------------------- -->
                         <div class="widget">
-                            <h3 class="widget-title">Sản phẩm mới</h3>
+                            <h3 class="widget-title">Smartphone mới</h3>
                             <div class="widget-body">
                                 <div class="beta-sales beta-lists">
                                     @foreach ($new_product as $new)

@@ -77,8 +77,8 @@
         .fixNav.col-sm-12 {
             width: 16.6666666666%;
             position: fixed;
-            top: 130px;
-            left: 75px;
+            top: 105px;
+            left: 44px;
             z-index: 1;
             border-bottom-width: 0px;
             border-top-width: 0px;
