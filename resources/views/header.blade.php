@@ -1,22 +1,22 @@
 <div id="header">
 
-    <div class="header-body"  style="background-color: white">
+    <div class="header-body"  style="background-color:red">
         <div class="container beta-relative">
             <div class="pull-left" >
-                <a href="{{route('trangchu')}}" id="logo"><img src="source/image/l.png" width="300px" height="100px" alt="" ></a>
+                <a href="{{route('trangchu')}}" id="logo"><img src="source/image/l.png" width="300px" height="120px" alt="" ></a>
             </div>
             <div class="pull-right beta-components space-left ov" style=" float:left">
                 <div class="space10">&nbsp;</div>
                 <div class="beta-comp" >
                     <form role="search" method="get" id="searchform" action="{{ route('trangchu') }}" style="width:300px; padding-top:10px;" >
-                        <input type="text" value="" name="s" id="s" placeholder="Nhập từ khóa..." style="background-color: #f7f7f7;border-radius: 19px;border-color: deepskyblue;" />
+                        <input type="text" value="" name="s" id="s" placeholder="Nhập từ khóa..." style="background-color: #81F7F3;border-radius: 19px;border-color: deepskyblue;" />
                         <button class="fa fa-search" type="submit" id="searchsubmit" style=" padding-top:15px;bottom: 5px;right: 15px"></button>
                     </form>
                 </div>
             {{-- -------------- --}}
                 <div class="beta-comp" style="font-size: large;">
                         @if(Session::has('cart'))
-                            <div class="cart" style="margin:10px;background-color: #ffdddd;     border-radius: 10px;    border: 2px solid rgb(255, 9, 103);">
+                            <div class="cart" style="margin:10px;background-color:#FE2E2E;     border-radius: 10px;    border: 2px solid rgb(255, 9, 103);">
                                 <div class="beta-select" style=""><i class="fa fa-shopping-cart"></i> Giỏ hàng(@if(Session::has('cart')) {{Session('cart')->totalQty}}@else Trống @endif) <i class="fa fa-chevron-down"></i></div>
                                 <div class="beta-dropdown cart-body" style="    border-radius: 10px;background-color:white;    border: 2px solid rgb(255, 9, 103);" >
                                     @foreach($product_cart as $product)
@@ -55,7 +55,7 @@
 {{-- -------------------------------------------------------------------------------------------------------------- --}}
 
 
-<nav class="navbar navbar-inverse header-bottom"  style="background-color:#215fa6; margin-bottom: 0px;" >
+<nav class="navbar navbar-inverse header-bottom"  style="background-color:#00FFFF; margin-bottom: 0px;" >
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
