@@ -157,7 +157,6 @@
                                             <div class="media-body">
                                                 <div  class="beta-sales-price"><a href="{{ route('chitietsanpham',$phukien->id) }}">{{ $phukien->name }}</a></div>
                                                 @if($phukien->promotion_price == 0)
-                                                    <span class ="flash-del"></span><br>
                                                     Giá : <span class ="flash-sale" >{{number_format($phukien->unit_price)}} VND</span>
                                                 @else
                                                     <span class ="flash-del" >{{number_format($phukien->unit_price)}} VND </span><br>

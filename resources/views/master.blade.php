@@ -37,7 +37,7 @@
             margin-top: 0;
         }
         .collapse , .navbar-collapse{
-            font-size: 25px;
+            font-size: 18px;
         }
         .navbar-inverse .navbar-nav>li>a {
             color: white;
@@ -47,7 +47,7 @@
         }
         .navbar-nav>li {
             float: left;
-            padding: 2px 20px;
+            padding: 2px 15px;
         }
         .navbar-brand {
             padding: 20px;
