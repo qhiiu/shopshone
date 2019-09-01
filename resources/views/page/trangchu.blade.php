@@ -41,7 +41,7 @@
 
                                     <div class="row">
                                         @foreach ($new_product as $new)
-                                            <div class="col-sm-4" style="padding: 20px;">
+                                            <div class="col-sm-4" style="padding: 10px;">
                                                 <div class="single-item">
 
                                                     @if($new->promotion_price > 0 )

@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="source/assets/dest/rs-plugin/css/responsive.css">
 	<link rel="stylesheet" title="style" href="source/assets/dest/css/style.css">
 	<link rel="stylesheet" href="source/assets/dest/css/animate.css">
-    <link rel="stylesheet" title="style" href="source/assets/dest/css/huong-style.css">
+    <link rel="stylesheet" title="style" href="source/assets/dest/css/duong-style.css">
 
     <style>
 
@@ -43,7 +43,7 @@
             color: white;
         }
         .navbar-inverse .navbar-nav>li>a:hover {
-            color: lightgreen;
+            color: #01DF01;
         }
         .navbar-nav>li {
             float: left;
