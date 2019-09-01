@@ -62,7 +62,7 @@
 							<div class="your-order-body" style="padding: 0px 10px">
 								<div class="your-order-item">
 									<div>
-										@if(Session::has('cart'))  
+										@if(Session::has('cart'))
 											@foreach($product_cart as $cart)
                                         <!--  one item	 -->
                                             <div class="media">

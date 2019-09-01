@@ -11,6 +11,10 @@ class ThongtincanhanController extends Controller
     {
       return view('thongtincanhan.show');
     }
+    public function show($id)
+    {
+        return 'show';
+    }
     public function _edit()
     {
       return view('thongtincanhan.edit');
@@ -23,7 +27,10 @@ class ThongtincanhanController extends Controller
          'name' => 'required',
          'gender'=>'required',
          'dob'=>''
-     ]);
+      ],[
+          'name.required' => 'Họ tên không được trống !',
+          'gender.required' => 'mời bạn chọn giới tính'
+      ]);
      $user = User::find($id);
      $user->phone = $request->phone;
      $user->address = $request->address;
@@ -43,7 +50,7 @@ class ThongtincanhanController extends Controller
 
     public function list_bills(){
       //get id_bill
-      $id_bill = DB::table('bill_details')->where('id_user',\Auth::user()->id)->distinct()->orderBy('id_bill','desc')->get('id_bill'); 
+      $id_bill = DB::table('bill_details')->where('id_user',\Auth::user()->id)->distinct()->orderBy('id_bill','desc')->get('id_bill');
 
       return view('thongtincanhan.list_bills',compact('id_bill'));
     }

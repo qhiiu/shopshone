@@ -65,7 +65,7 @@
                             @endforeach
                         </div>
                         {{ $sp_theoloai->links() }}
-                    </div> 
+                    </div>
 
                     <div class="space50">&nbsp;</div>
 
@@ -107,7 +107,7 @@
                         </div>
                         <div class="row">{{$sp_khac->links()}}</div>
                         <div class="space40">&nbsp;</div>
-                    </div> 
+                    </div>
                 </div>
                 <div class="col-sm-2 aside" style="width:20%">
                             <!-- ------ Sản phẩm mới nhất ----------------------------------------------------------------- -->
@@ -120,16 +120,22 @@
                                             <div class="col-sm-4">
                                                 <a class="st" href="{{route('chitietsanpham',$new->id)}}"><img src="{{$new->image}}" alt="loading ... " style="height: 60px;"></a>
                                             </div>
-                                            <div class="col-sm-7">
+                                            <div class="col-sm-8" style="padding:0">
                                                 <div class="media-body">
                                                     <div  class="beta-sales-price"><a href="{{ route('chitietsanpham',$new->id) }}">{{ $new->name }}</a></div>
-                                                    @if($new->promotion_price == 0)
-                                                        <span class ="flash-del"></span><br>
-                                                        Giá : <span class ="flash-sale" >{{number_format($new->unit_price)}} VND</span>
-                                                    @else
-                                                        <span class ="flash-del" >{{number_format($new->unit_price)}} VND </span><br>
-                                                        Giá : <span class ="flash-sale" >{{number_format($new->promotion_price)}} VND</span>
-                                                    @endif
+                                                    <div>
+                                                        @if($new->promotion_price == 0)
+                                                            <div class ="flash-del"></div>
+                                                            <div style="font-size:15px">
+                                                                Giá : <span class ="flash-sale" >{{number_format($new->unit_price)}} VND</span>
+                                                            </div>
+                                                        @else
+                                                            <div class ="flash-del" >{{number_format($new->unit_price)}} VND </div>
+                                                            <div  style="font-size:16px">
+                                                                Giá : <span class ="flash-sale" >{{number_format($new->promotion_price)}} VND</span>
+                                                            </div>
+                                                        @endif
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -138,7 +144,7 @@
                             </div>
                         </div>
                 </div>
-            </div> 
+            </div>
         </div> <!-- .main-content -->
     </div> <!-- #content -->
 </div> <!-- .container -->

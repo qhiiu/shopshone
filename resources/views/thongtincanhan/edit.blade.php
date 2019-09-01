@@ -3,7 +3,8 @@
         @extends('thongtincanhan.master')
         @section('contentInfo')
         <div style="display:block;height:250px;    font-size: larger;">
-        <form  class="update_form" action="{{ route('thongtincanhan.update',Auth::user()->id) }}" method="post">
+        {{-- <form  class="update_form" action="{{ route('thongtincanhan.update',Auth::user()->id) }}" method="post"> --}}
+            <form  class="update_form" action="{{ route('thongtincanhan.update',Auth::user()->id) }}" method="post">
                 @csrf
                 <input type="hidden" name="_method" value="PATCH">
 
@@ -12,13 +13,22 @@
             <div class="row"  style=" font-size: larger;">
                 <div class="col-sm-3">Họ tên</div>
                 <div class="col-sm-7">
-                    <input type="text"  class="form-control " name="name" value="{{ Auth::user()->name }}" style="    font-size: large;">
+                    <div>
+                        <input type="text"  class="form-control " name="name" value="{{ Auth::user()->name }}" style="    font-size: large;">
+                    </div>
+                    @error('name')
+                    <div class="invalid-feedback" role="alert">
+                        <strong style="font-size:19px; color:red;">{{ $message }}</strong>
+                    </div>
+                    @enderror
                 </div>
             </div>
             <div class="row"  style=" margin-top: 10px; font-size: larger;">
                 <div class="col-sm-3">Email  </div>
                 <div class="col-sm-7">
-                    <input type="email"  class="form-control" name="email" value="{{ Auth::user()->email }}" readonly style="    font-size: large;">
+                    <div>
+                        <input type="email"  class="form-control" name="email" value="{{ Auth::user()->email }}" readonly style="    font-size: large;">
+                    </div>
                 </div>
             </div>
             <div class="row"  style=" margin-top: 10px; font-size: larger;">
@@ -36,26 +46,29 @@
             <div class="row"  style=" margin-top: 10px; font-size: larger;">
                 <div class="col-sm-3">Giới tính  </div>
                 <div class="col-sm-7">
-                        <div class="input-wrap">
-                                <div class="row">
-                                    <div class="col-xs-4">
-                                        <span>
-                                            <input type="radio" name="gender" value="nam"
-                                            @if (Auth::user()->gender == 'nam')    {{ 'checked' }}   @endif  style="    font-size: large;"/>
-                                            Nam
-                                        </span>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <span>
-                                            <input type="radio" name="gender" value="nữ"
-                                            @if (Auth::user()->gender == 'nữ')    {{ 'checked' }}   @endif style="    font-size: large;">
-                                            Nữ
-                                        </span>
-                                    </div>
-                                </div>
-
+                    <div class="input-wrap">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <span>
+                                    <input type="radio" name="gender" value="nam"
+                                    @if (Auth::user()->gender == 'nam')    {{ 'checked' }}   @endif  style="    font-size: large;"/>
+                                    Nam
+                                </span>
                             </div>
-                    {{-- <input type="text"  class="form-control " name="phone" value="{{ Auth::user()->gender }}">    --}}
+                            <div class="col-xs-4">
+                                <span>
+                                    <input type="radio" name="gender" value="nữ"
+                                    @if (Auth::user()->gender == 'nữ')    {{ 'checked' }}   @endif style="    font-size: large;">
+                                    Nữ
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    @error('gender')
+                    <div class="invalid-feedback" role="alert">
+                        <strong style="font-size:19px; color:red;">{{ $message }}</strong>
+                    </div>
+                    @enderror
                 </div>
             </div>
             <div class="row"  style=" margin-top: 18px; font-size: larger;">

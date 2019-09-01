@@ -129,7 +129,7 @@
                                         <div class="col-sm-3" style="padding-left: 10px;">
                                             <a href="{{route('tintuc',$news->id)}}"><img src="{{$news->image}}" alt=" loading ... " style="height: 60px;"></a>
                                         </div>
-                                        <div class="col-sm-8" style="padding-left: 0;">
+                                        <div class="col-sm-9" style="padding: 0;">
                                             <div class="media-body">
                                                 <span class="beta-sales-price" style="font-size:19px">
                                                     <a href="{{route('tintuc',$news->id)}}">{{ $news->title }} </a>

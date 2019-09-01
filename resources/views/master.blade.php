@@ -81,7 +81,7 @@
             left: 75px;
             z-index: 1;
             border-bottom-width: 0px;
-            border-top-width: 0px;  
+            border-top-width: 0px;
         }
         .color-div {
             background: #A9F6FD!important;
@@ -116,6 +116,7 @@
             margin-left: 0;
             margin-right: 0;
         }
+
     </style>
 </head>
 <body style="font-family: -webkit-pictograph;">
