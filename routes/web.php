@@ -85,7 +85,6 @@ Route::group(['prefix' => 'admin'], function () {
         return redirect()->route('login');
     })->name('deleteCookie_checkAdmin');
 });
-Route::get('/uploadfile', "UploadfileController@index");
 
 
 //facebook -------------

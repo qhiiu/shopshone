@@ -46,7 +46,7 @@ class Pagecontroller extends Controller
         return view('page.gioithieu');
      }
      public function getAddtoCart(Request $req, $id){
-         $product=Product::find($id);                          
+         $product=Product::find($id);
          $oldCart = Session('cart')?Session::get('cart'):null;  //ktra xem session có sp chưa
          $cart = new Cart($oldCart);                            //tạo gio mới
         $cart -> add($product,$id);                          //add vào giỏ cũ nữa
@@ -95,7 +95,7 @@ class Pagecontroller extends Controller
         if($cart == null ){
             return redirect()->back()->with('gioHangTrong','Giỏ hàng trống ! Xin mời mua thêm sản phẩm');
         }
-        
+
         $customer=new Customer;
 
             $customer->name = $req->name;
