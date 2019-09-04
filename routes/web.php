@@ -82,6 +82,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('/customer', 'CustomerController');
     Route::resource('/news', 'NewsController');
     Route::resource('/users','UsersController');
+    Route::get('type_product/{id_type}','ProductsController@type_product')->name('type_product');
 
        //----- delete Cookie checkAdmin ---
        Route::get('/deleteCookie_checkAdmin', function (Request $request) {

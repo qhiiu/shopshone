@@ -118,7 +118,7 @@ class ProductsController extends Controller
             $product->save();
             return redirect()->route('products.index')->with('success','update record success');
         }else{
-            
+
         //delete old image to create new image
         $old_image = DB::table('products')->where('id',$id)->get();
         $old_image_path = public_path($old_image[0]->image);
@@ -165,4 +165,10 @@ class ProductsController extends Controller
         $Product->delete();
         return redirect(url()->previous())->with('success','Delete success');
     }
+
+    public function type_product($id_type){
+        $list = DB::table('products')->where('id_type',$id_type)->paginate(12);
+        return view('admin.products.index', ['list' => $list]);
+    }
+
 }

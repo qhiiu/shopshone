@@ -8,6 +8,16 @@
 
                 <p><a href="{{ url('admin/products/create') }}"  class="btn btn-success">Add new</a></p>
 
+                <div style="font-size:25px;">
+                    <button><a href="{{ route('products.index') }}">-- ALL --  </a></button>
+                    <button><a href="{{ route('type_product',1) }}">Smartphone </a></button>
+                    <button><a href="{{ route('type_product',2) }}">Phụ kiện Smartphone </a></button>
+                    <button><a href="{{ route('type_product',3) }}">Ipad </a></button>
+                    <button><a href="{{ route('type_product',4) }}">Tai nghe </a></button>
+                    <button><a href="{{ route('type_product',5) }}">Sạc </a></button>
+                    <button><a href="{{ route('type_product',6) }}">Sản phẩm khác </a></button>
+                </div>
+                <div class="space50">&nbsp;</div>
                 <div>
                     @foreach ($list as $r)
                             <div class="row" style="margin-bottom:5px;margin-left:10px">

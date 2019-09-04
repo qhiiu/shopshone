@@ -102,7 +102,7 @@
                     <li class=""><a href="{{ route('users.index') }}"><i class="fa fa-link"></i> <span>Users</span></a></li>
                     <li class=""><a href="{{ route('products.index') }}"><i class="fa fa-link"></i> <span>Product</span></a></li>
                     <li class=""><a href="{{ route('productsType.index') }}"><i class="fa fa-link"></i> <span>Products Type</span></a></li>
-                    
+
                     <li class=""><a href="{{ route('customer.index') }}"><i class="fa fa-link"></i> <span>Customer</span></a></li>
                     <li class=""><a href="{{ route('bills.index') }}"><i class="fa fa-link"></i> <span>Bills</span></a></li>
                     <li class=""><a href="{{ route('bill_details.index') }}"><i class="fa fa-link"></i> <span>Bill_details</span></a></li>

@@ -79,12 +79,12 @@
                                                         <div class="color-orange your-order-info">
                                                             <span>Số lượng :</span>
                                                             @if ($cart['qty'] > 1)
-                                                            <span style="  display: inline-block;   width: 20px;  border: 1px solid #ccc; ;
+                                                            <span style="  display: inline-block;   width: 25px;  border: 1px solid #ccc; ;
                                                             text-align: center;"> <a href="{{ route('reduceByOne',$cart['item']['id']) }}"> - </a>
                                                             </span>
                                                             @endif
                                                             <span>{{ $cart['qty'] }}</span>
-                                                            <span style="  display: inline-block;  width: 20px;   border: 1px solid #ccc; ;
+                                                            <span style="  display: inline-block;  width: 25px;   border: 1px solid #ccc; ;
                                                             text-align: center;"><a href="{{ route('addByOne',$cart['item']['id']) }}"> + </a></span>
                                                         </div>
                                                     </div>
