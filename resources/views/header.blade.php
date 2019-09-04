@@ -16,9 +16,9 @@
             {{-- -------------- --}}
                 <div class="beta-comp" style="font-size: large;">
                         @if(Session::has('cart'))
-                            <div class="cart" style="margin:10px;background-color:#FE2E2E;     border-radius: 10px;    border: 2px solid rgb(255, 9, 103);">
+                            <div class="cart" style="margin:10px;background-color: #f4fe2e;     border-radius: 10px;    border: 2px solid #f4fe2e;">
                                 <div class="beta-select" style=""><i class="fa fa-shopping-cart"></i> Giỏ hàng(@if(Session::has('cart')) {{Session('cart')->totalQty}}@else Trống @endif) <i class="fa fa-chevron-down"></i></div>
-                                <div class="beta-dropdown cart-body" style="    border-radius: 10px;background-color:white;    border: 2px solid rgb(255, 9, 103);" >
+                                <div class="beta-dropdown cart-body" style="    border-radius: 10px;background-color:white;    border: 2px solid #f4fe2e;" >
                                     @foreach($product_cart as $product)
                                     <div class="cart-item">
                                     <a class="cart-item-delete" href="{{route('xoagiohang',$product['item']['id'])}}"><i class="fa fa-times"></i></a>
@@ -78,7 +78,7 @@
               </li>
               <li><a href="{{ route('tintuc',11) }}">Tin Tức</a></li>
               <li><a href="{{ route('gioithieu') }}">Giới thiệu</a></li>
-              <li><a href="{{ route('lienhe') }}">Liên hệ</a></li>
+              <li><a href="{{ route('support.create') }}">Liên hệ</a></li>
               <li><a href="{{ route('dathang') }}">Giỏ hàng</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

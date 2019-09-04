@@ -12,14 +12,14 @@
                 </div>
             @endif
             @if(Session::has('gioHangTrong'))
-            <div class="row" style="margin-top: 20px;">
-                <div class="thongbao" style=" font-size:25px; margin-bottom:10px;text-align: center;">
-                    <span style="  padding: 15px;background: red; border-radius: 30px;  color:rgb(255, 214, 88);">
-                        {{Session::get('gioHangTrong')}}
-                    </span>
+                <div class="row" style="margin-top: 20px;">
+                    <div class="thongbao" style=" font-size:25px; margin-bottom:10px;text-align: center;">
+                        <span style="  padding: 15px;background: red; border-radius: 30px;  color:rgb(255, 214, 88);">
+                            {{Session::get('gioHangTrong')}}
+                        </span>
+                    </div>
                 </div>
-            </div>
-        @endif
+            @endif
 			<div class="pull-left">
 				<h2 class="inner-title" style="margin-top:30px; font-size:50px;">Đặt hàng</h2>
 			</div>
@@ -66,14 +66,30 @@
 											@foreach($product_cart as $cart)
                                         <!--  one item	 -->
                                             <div class="media">
-												<a href="{{ route('chitietsanpham',$cart['item']['id']) }}"><img width="20%" src="{{$cart['item']['image']}}" alt="" class="pull-left"></a>
-												<div class="media-body" style="font-size: 20px;padding:10px">
-													<div class=""><a href="{{ route('chitietsanpham',$cart['item']['id']) }}">{{ $cart['item']['name'] }}</a></div>
-                                                    <div class="space20">&nbsp;</div>
-                                                    <div class="color-orange your-order-info">Đơn giá : {{number_format($cart['price'])}}VND</div>
-                                                    <div class="space20">&nbsp;</div>
-                                                    <div class="color-orange your-order-info">Số lượng : {{$cart['qty']}}</div>
+                                                <div class="col-sm-1">
+                                                    <a class="cart-item-delete" href="{{route('xoagiohang',$cart['item']['id'])}}"><i class="fa fa-times"></i></a>
                                                 </div>
+                                                <div class="col-sm-11">
+                                                    <a href="{{ route('chitietsanpham',$cart['item']['id']) }}"><img width="20%" src="{{$cart['item']['image']}}" alt="" class="pull-left"></a>
+                                                    <div class="media-body" style="font-size: 20px;padding:10px">
+                                                        <div class=""><a href="{{ route('chitietsanpham',$cart['item']['id']) }}">{{ $cart['item']['name'] }}</a></div>
+                                                        <div class="space20">&nbsp;</div>
+                                                        <div class="color-orange your-order-info">Giá sản phẩm : {{number_format($cart['price'])}}VND</div>
+                                                        <div class="space20">&nbsp;</div>
+                                                        <div class="color-orange your-order-info">
+                                                            <span>Số lượng :</span>
+                                                            @if ($cart['qty'] > 1)
+                                                            <span style="  display: inline-block;   width: 20px;  border: 1px solid #ccc; ;
+                                                            text-align: center;"> <a href="{{ route('reduceByOne',$cart['item']['id']) }}"> - </a>
+                                                            </span>
+                                                            @endif
+                                                            <span>{{ $cart['qty'] }}</span>
+                                                            <span style="  display: inline-block;  width: 20px;   border: 1px solid #ccc; ;
+                                                            text-align: center;"><a href="{{ route('addByOne',$cart['item']['id']) }}"> + </a></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         <!-- end one item -->
                                         @endforeach

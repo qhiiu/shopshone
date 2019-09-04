@@ -54,6 +54,25 @@ class Pagecontroller extends Controller
 
         return redirect()->back();
      }
+     //----------
+     public function reduceByOne(Request $req, $id){
+        $product=Product::find($id);
+        $oldCart = Session('cart')?Session::get('cart'):null;  //ktra xem session có sp chưa
+        $cart = new Cart($oldCart);
+        $cart -> reduceByOne($product,$id);
+
+       return redirect()->back();
+    }
+    public function addByOne(Request $req, $id){
+        $product=Product::find($id);
+        $oldCart = Session('cart')?Session::get('cart'):null;  //ktra xem session có sp chưa
+        $cart = new Cart($oldCart);
+        $cart -> addByOne($product,$id);
+
+       return redirect()->back();
+    }
+     //----------
+
      public function getMuahang(){
         return view('page.muahang');
      }

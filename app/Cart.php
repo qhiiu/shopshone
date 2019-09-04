@@ -24,32 +24,63 @@ class Cart
 		}else{
 			$price = $item->promotion_price;
 		}
-		//--------
-		
-		$giohang = ['qty'=>0, 'price' => $price, 'item' => $item];
+		//----------------------------------------------
+
+        $giohang = ['qty'=>0,
+                    'price' => $price,
+                    'item' => $item
+                    ];
 		if($this->items){
 			if(array_key_exists($id, $this->items)){
 				$giohang = $this->items[$id];
 			}
 		}
-		$giohang['qty']++;
-		$giohang['price'] = $price * $giohang['qty'];
-		$this->items[$id] = $giohang;
+        $giohang['qty']++;  // số lượng
+
+        $this->items[$id] = $giohang;
 		$this->totalQty++;
-		$this->totalPrice += $price;
+		$this->totalPrice += $price;  // tổng tiền
 	}
 
-	//xóa 1
-	public function reduceByOne($id){
-		$this->items[$id]['qty']--;
-		$this->items[$id]['price'] -= $this->items[$id]['item']['price'];
-		$this->totalQty--;
-		$this->totalPrice -= $this->items[$id]['item']['price'];
-		if($this->items[$id]['qty']<=0){
-			unset($this->items[$id]);
-		}
-	}
-	
+    //xóa 1
+    public function reduceByOne($item,$id){
+
+        if($qty_befor = Session('cart')->items[$id]['qty'] > 1){
+            $qty_befor = Session('cart')->items[$id]['qty'];
+            $qty_after = $qty_befor - 1;
+            Session('cart')->items[$id]['qty'] = $qty_after;
+
+            $price_each_product = Session('cart')->items[$id]['price'];
+
+            $totalQty_before = Session('cart')->totalQty;
+            $totalQty_after = $totalQty_before - 1;
+            Session('cart')->totalQty = $totalQty_after;
+
+            $totalPrice_before = Session('cart')->totalPrice;
+            $totalPrice_after = $totalPrice_before - $price_each_product;
+            Session('cart')->totalPrice = $totalPrice_after;
+        }
+    }
+
+    public function addByOne($item,$id){
+
+        if($qty_befor = Session('cart')->items[$id]['qty'] >= 1){
+            $qty_befor = Session('cart')->items[$id]['qty'];
+            $qty_after = $qty_befor + 1;
+            Session('cart')->items[$id]['qty'] = $qty_after;
+
+            $price_each_product = Session('cart')->items[$id]['price'];
+
+            $totalQty_before = Session('cart')->totalQty;
+            $totalQty_after = $totalQty_before + 1;
+            Session('cart')->totalQty = $totalQty_after;
+
+            $totalPrice_before = Session('cart')->totalPrice;
+            $totalPrice_after = $totalPrice_before + $price_each_product;
+            Session('cart')->totalPrice = $totalPrice_after;
+        }
+    }
+
 	//xóa nhiều
 	public function removeItem($id){
 		$this->totalQty -= $this->items[$id]['qty'];

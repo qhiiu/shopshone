@@ -40,10 +40,10 @@
             font-size: 20px;
         }
         .navbar-inverse .navbar-nav>li>a {
-            color: white;
+            color: Black;
         }
         .navbar-inverse .navbar-nav>li>a:hover {
-            color: #01DF01;
+            color: red;
         }
         .navbar-nav>li {
             float: left;

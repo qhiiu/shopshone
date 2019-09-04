@@ -56,7 +56,11 @@
                                 </div>
                                 <div  class="card card-body">
                                     <b class="col-md-2" style="width:10%;border-top:1px solid #d6d6d6">image</b>
-                                    <span class="col-md-10" style="border-left:1px solid #d6d6d6;border-bottom:1px solid #d6d6d6">{{$r->image}} <img src="{{ asset($r->image) }}" alt="loading ..." height="50px"></span>
+                                    <span class="col-md-10" style="border-left:1px solid #d6d6d6;border-bottom:1px solid #d6d6d6">{{$r->image}}
+                                        <div>
+                                            <img src="{{ asset($r->image) }}" alt="loading ..." height="150px">
+                                        </div>
+                                    </span>
                                 </div>
                                 <div class="card card-body">
                                     <b class="col-md-2" style="width:10%;border-top:1px solid #d6d6d6">unit</b>

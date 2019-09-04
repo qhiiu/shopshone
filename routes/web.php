@@ -30,10 +30,7 @@ Route::get('loai-san-pham/{type}',[
     'as'=>'chitietsanpham',
    'uses'=>'PageController@getChitiet'
 ]);
-Route::get('lien-he',[
-    'as'=>'lienhe',
-   'uses'=>'PageController@getLienhe'
-]);
+
 Route::get('gioi-thieu',[
     'as'=>'gioithieu',
    'uses'=>'PageController@getGioithieu'
@@ -41,6 +38,14 @@ Route::get('gioi-thieu',[
 Route::get('add-to-cart/{id}',[
     'as'=>'themgiohang',
    'uses'=>'PageController@getAddtoCart'
+]);
+Route::get('reduceByOne/{id}',[
+    'as'=>'reduceByOne',
+   'uses'=>'PageController@reduceByOne'
+]);
+Route::get('addByOne/{id}',[
+    'as'=>'addByOne',
+   'uses'=>'PageController@addByOne'
 ]);
 Route::get('mua-hang',[
     'as'=>'muahang',
@@ -65,8 +70,7 @@ Route::get('del-cart/{id}',[
  Route::get('thongtincanhan/_edit', 'ThongtincanhanController@_edit')->name('thongtincanhan._edit');
  Route::get('list_bills', 'ThongtincanhanController@list_bills')->name('list_bills');
  Route::resource('thongtincanhan', 'ThongtincanhanController');
-
-//  Route::fallback(function () {  return redirect()->route('trangchu'); });
+ Route::resource('support', 'SupportController');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', 'UsersController@index');
