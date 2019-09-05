@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="source/assets/dest/rs-plugin/css/responsive.css">
 	<link rel="stylesheet" title="style" href="source/assets/dest/css/style.css">
 	<link rel="stylesheet" href="source/assets/dest/css/animate.css">
-    <link rel="stylesheet" title="style" href="source/assets/dest/css/duong-style.css">
+    {{-- <link rel="stylesheet" title="style" href="source/assets/dest/css/duong-style.css"> --}}
 
     <style>
 
@@ -83,6 +83,15 @@
             border-bottom-width: 0px;
             border-top-width: 0px;
         }
+        .navbar.navbar-inverse.header-bottom.fixNav {
+            width: 100%;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            z-index: 111111;
+            border-bottom-width: 0px;
+            border-top-width: 0px;
+        }
         .color-div {
             background: #A9F6FD!important;
         }
@@ -128,6 +137,10 @@
            padding-left: 15px;
             /* padding-right: 15px; */        }
 
+            .inner-header {
+                background-color: white;
+                padding: 20px 0;
+            }
     </style>
 </head>
 <body style="font-family: -webkit-pictograph;">

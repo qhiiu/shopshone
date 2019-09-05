@@ -21,7 +21,7 @@
                 </div>
             @endif
 			<div class="pull-left">
-				<h2 class="inner-title" style="margin-top:30px; font-size:50px;">Đặt hàng</h2>
+				<h2 class="inner-title" style="margin-top:30px; font-size:50px;color : black">Đặt hàng</h2>
 			</div>
 		</div>
 	</div>
