@@ -137,7 +137,7 @@ class Pagecontroller extends Controller
             $bill_details->id_bill = $bill->id;
             $bill_details->id_product = $key;
             $bill_details->quantity = $value['qty'];
-            $bill_details->unit_price = $value['price'] / $value['qty'];
+            $bill_details->unit_price = $value['price'];
             if(\Auth::user() !== null ){
                 $bill_details->id_user = \Auth::user()->id;
             }

@@ -35,11 +35,11 @@
                             <label><b>Gender  *</b></label>
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" name="gender" value="nam"
-                                    @if (Auth::user()->gender == 'nam')       {{ 'checked' }}   @endif>Male
+                                    @if ($l->gender == 'nam')       {{ 'checked' }}   @endif>Male
                             </div>
                             <div class="form-check">
                                 <input type="radio" class="form-check-input" name="gender" value="nữ"
-                                    @if (Auth::user()->gender == 'nữ')       {{ 'checked' }}   @endif>Female
+                                    @if ($l->gender == 'nữ')       {{ 'checked' }}   @endif>Female
                             </div>
                         </div>
 

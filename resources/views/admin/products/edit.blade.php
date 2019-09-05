@@ -39,7 +39,7 @@
         <br>
         <div class="form-group">
           <label for="">description</label>
-          <textarea class="form-control" name="description" rows="8">{{ $l->description }}</textarea>
+          <textarea class="form-control" name="description" rows="5">{{ $l->description }}</textarea>
         </div>
 
         <div class="form-group">

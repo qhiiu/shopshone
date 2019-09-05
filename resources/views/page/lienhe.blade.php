@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
 
-<div class="space70">&nbsp;</div>
+<div class="space5">&nbsp;</div>
 @if(Session::has('support_success'))
 <div class="row" style="margin-top: 20px;">
     <div class="thongbao" style=" font-size:25px; margin-bottom:10px;text-align: center;">
