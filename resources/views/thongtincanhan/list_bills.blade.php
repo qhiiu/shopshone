@@ -7,7 +7,7 @@
                     <div class="space40">&nbsp;</div>
 
                     @foreach ($id_bill as $l)
-                    <div class="row" style="border:1px solid black;margin-bottom:30px;" >
+                    <div class="row" style="border:1px solid orange;margin-bottom:30px;" >
                             <div class="row" style="border-bottom: 1px solid #ccc; background: antiquewhite;padding: 10px;">
                                 <div class="row">
                                 <div class="col-sm-4">

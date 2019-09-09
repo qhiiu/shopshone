@@ -29,7 +29,7 @@ class ThongtincanhanController extends Controller
          'dob'=>''
       ],[
           'name.required' => 'Họ tên không được trống !',
-          'gender.required' => 'mời bạn chọn giới tính'
+          'gender.required' => 'Mời bạn chọn giới tính'
       ]);
      $user = User::find($id);
      $user->phone = $request->phone;
