@@ -49,7 +49,7 @@ class SupportController extends Controller
         $support->content = $request->content;
         $support->save();
 
-        return redirect()->back()->with('support_success','Gửi thành công ! ');
+        return redirect()->back()->with('support_success','Gửi thành công ! Chúng tôi sẽ phản hồi lại trong thời gian ngắn nhất  ');
     }
 
     /**

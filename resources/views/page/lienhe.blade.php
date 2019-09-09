@@ -26,7 +26,7 @@
                     @csrf
 
                     <div class="form-block">
-                        <input name="name" type="text" placeholder="Your Name (required)">
+                        <input name="name" type="text" placeholder="Họ tên (bắt buộc)">
                     </div>
                     @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -34,7 +34,7 @@
                         </span>
                     @enderror
                     <div class="form-block">
-                        <input name="email" type="email" placeholder="Your Email (required)">
+                        <input name="email" type="email" placeholder="Email (bắt buộc)">
                     </div>
                     @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -42,7 +42,7 @@
                         </span>
                     @enderror
                     <div class="form-block">
-                        <input name="title" type="text" placeholder="title">
+                        <input name="title" type="text" placeholder="tiêu đề">
                     </div>
                     @error('title')
                         <span class="invalid-feedback" role="alert">
@@ -50,7 +50,7 @@
                         </span>
                     @enderror
                     <div class="form-block">
-                        <textarea name="content" placeholder="Your Content"></textarea>
+                        <textarea name="content" placeholder="Nội dung"></textarea>
                     </div>
                     @error('content')
                         <span class="invalid-feedback" role="alert">
@@ -58,7 +58,7 @@
                         </span>
                     @enderror
                     <div class="form-block">
-                        <button type="submit" class="beta-btn primary">Send Message <i class="fa fa-chevron-right"></i></button>
+                        <button type="submit" class="beta-btn primary">Gửi tin nhắn <i class="fa fa-chevron-right"></i></button>
                     </div>
                 </form>
             </div>
